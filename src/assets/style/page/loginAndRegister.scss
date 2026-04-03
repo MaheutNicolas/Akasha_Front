@@ -1,0 +1,56 @@
+@use '../shared' as *;
+
+.login-register {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+
+  &__card {
+    width: 100%;
+    max-width: 380px;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: $spacing-xl;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    @extend .resizable-title;
+    font-family: $font-display;
+    font-weight: 900;
+    letter-spacing: 0.28em;
+    color: $blue;
+  }
+
+  &__sub {
+    @extend .resizable-highlight;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__message {
+    text-align: center;
+    font-size: $font-small;
+    color: $text-muted;
+    letter-spacing: 0.06em;
+
+    a {
+      color: $blue;
+      transition: color 0.15s;
+      &:hover { color: $light-blue }
+    }
+  }
+}

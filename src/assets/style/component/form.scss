@@ -1,0 +1,84 @@
+@use '../shared.scss' as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    &__label {
+        font-size: $font-text;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: $text-muted;
+    }
+
+    &__input {
+        background: $bg;
+        border: 1px solid $border;
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-size: $font-small;
+        color: $text;
+        transition: border-color 0.15s;
+
+        &::placeholder { color: $text-dim; }
+
+        &:focus { border-color: $border2; }
+
+        &.is-error { border-color: $red; }
+    }
+
+    &__error {
+            font-size: $font-small;
+            color: $red;
+            letter-spacing: 0.06em;
+
+        &--global {
+            text-align: center;
+            padding: 8px;
+            background: rgba($red, 0.06);
+            border: 1px solid rgba($red, 0.2);
+            border-radius: 4px;
+        }
+    }
+
+    &__btn {
+        margin-top: $spacing-xs;
+        padding: 11px;
+        background: rgba($blue, 0.08);
+        border: 1px solid rgba($blue, 0.3);
+        border-radius: 4px;
+        font-size: $font-text;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: $blue;
+        transition: all 0.15s;
+
+        &:hover:not(:disabled) {
+            background: rgba($blue, 0.14);
+            border-color: $blue;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__loader {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 1px solid rgba($blue, 0.3);
+        border-top-color: $blue;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+    }
+}

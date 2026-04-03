@@ -1,54 +1,54 @@
 <!-- LoginPage.vue -->
 <template>
-  <div class="login">
+  <div class="login-register">
 
-    <div class="login__card">
+    <div class="login-register__card">
 
-      <div class="login__header">
-        <h1 class="login__title">AKASHA</h1>
-        <p class="login__sub">Tramis Strata</p>
+      <div class="login-register__header">
+        <h1 class="login-register__title">AKASHA</h1>
+        <p class="login-register__sub">Tramis Strata</p>
       </div>
 
-      <form class="login__form" @submit.prevent="handleSubmit">
+      <form class="form" @submit.prevent="handleSubmit">
 
-        <div class="login__field">
-          <label class="login__label">Email</label>
+        <div class="form__field">
+          <label class="form__label">Email</label>
           <input
             v-model="form.email"
             type="email"
-            class="login__input"
+            class="form__input"
             :class="{ 'is-error': errors.email }"
             placeholder="player@akasha.com"
             autocomplete="email"
           />
-          <span class="login__error" v-if="errors.email">{{ errors.email }}</span>
+          <span class="form__error" v-if="errors.email">{{ errors.email }}</span>
         </div>
 
-        <div class="login__field">
-          <label class="login__label">Mot de passe</label>
+        <div class="form__field">
+          <label class="form__label">Mot de passe</label>
           <input
             v-model="form.password"
             type="password"
-            class="login__input"
+            class="form__input"
             :class="{ 'is-error': errors.password }"
             placeholder="••••••••"
             autocomplete="current-password"
           />
-          <span class="login__error" v-if="errors.password">{{ errors.password }}</span>
+          <span class="form__error" v-if="errors.password">{{ errors.password }}</span>
         </div>
 
-        <span class="login__error login__error--global" v-if="errors.global">
+        <span class="form__error form__error--global" v-if="errors.global">
           {{ errors.global }}
         </span>
 
-        <button class="login__btn" type="submit" :disabled="loading">
+        <button class="form__btn" type="submit" :disabled="loading">
           <span v-if="!loading">Connexion</span>
-          <span v-else class="login__loader"></span>
+          <span v-else class="form__loader"></span>
         </button>
 
       </form>
 
-      <p class="login__register">
+      <p class="login-register__message">
         Pas encore de compte ? <br>
         <RouterLink to="/register">Créer un accès</RouterLink>
       </p>
@@ -59,16 +59,16 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import useAuth from '@/function/useAuth.js'
+import { reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import useAuth from '@/function/useAuth.js';
 
-const router  = useRouter()
-const { login } = useAuth()
-const loading = ref(false)
+const router  = useRouter();
+const { login } = useAuth();
+const loading = ref(false);
 
-const form   = reactive({ email: '', password: '' })
-const errors = reactive({ email: '', password: '', global: '' })
+const form   = reactive({ email: '', password: '' });
+const errors = reactive({ email: '', password: '', global: '' });
 
 function validate() {
   errors.email    = ''

@@ -1,69 +1,69 @@
 <!-- RegisterPage.vue -->
 <template>
-  <div class="register">
-    <div class="register__card">
-      <div class="register__header">
-        <h1 class="register__title">AKASHA</h1>
-        <p class="register__sub">Créer un accès</p>
+  <div class="login-register">
+    <div class="login-register__card">
+      <div class="login-register__header">
+        <h1 class="login-register__title">AKASHA</h1>
+        <p class="login-register__sub">Créer un accès</p>
       </div>
-      <form class="register__form" @submit.prevent="handleSubmit">
-        <div class="register__field">
-          <label class="register__label">Nom d'invocateur</label>
+      <form class="form" @submit.prevent="handleSubmit">
+        <div class="form__field">
+          <label class="form__label">Nom d'invocateur</label>
           <input
             v-model="form.username"
             type="text"
-            class="register__input"
+            class="form__input"
             :class="{ 'is-error': errors.username }"
             placeholder="Mage_Errant"
             autocomplete="username"
           />
-          <span class="register__error" v-if="errors.username">{{ errors.username }}</span>
+          <span class="form__error" v-if="errors.username">{{ errors.username }}</span>
         </div>
-        <div class="register__field">
-          <label class="register__label">Email</label>
+        <div class="form__field">
+          <label class="form__label">Email</label>
           <input
             v-model="form.email"
             type="email"
-            class="register__input"
+            class="form__input"
             :class="{ 'is-error': errors.email }"
             placeholder="player@akasha.com"
             autocomplete="email"
           />
-          <span class="register__error" v-if="errors.email">{{ errors.email }}</span>
+          <span class="form__error" v-if="errors.email">{{ errors.email }}</span>
         </div>
-        <div class="register__field">
-          <label class="register__label">Mot de passe</label>
+        <div class="form__field">
+          <label class="form__label">Mot de passe</label>
           <input
             v-model="form.password"
             type="password"
-            class="register__input"
+            class="form__input"
             :class="{ 'is-error': errors.password }"
             placeholder="••••••••"
             autocomplete="new-password"
           />
-          <span class="register__error" v-if="errors.password">{{ errors.password }}</span>
+          <span class="form__error" v-if="errors.password">{{ errors.password }}</span>
         </div>
-        <div class="register__field">
-          <label class="register__label">Confirmer le mot de passe</label>
+        <div class="form__field">
+          <label class="form__label">Confirmer le mot de passe</label>
           <input
             v-model="form.confirm"
             type="password"
-            class="register__input"
+            class="form__input"
             :class="{ 'is-error': errors.confirm }"
             placeholder="••••••••"
             autocomplete="new-password"
           />
-          <span class="register__error" v-if="errors.confirm">{{ errors.confirm }}</span>
+          <span class="form__error" v-if="errors.confirm">{{ errors.confirm }}</span>
         </div>
-        <span class="register__error register__error--global" v-if="errors.global">
+        <span class="form__error form__error--global" v-if="errors.global">
           {{ errors.global }}
         </span>
-        <button class="register__btn" type="submit" :disabled="loading">
+        <button class="form__btn" type="submit" :disabled="loading">
           <span v-if="!loading">Initialiser le compte</span>
-          <span v-else class="register__loader"></span>
+          <span v-else class="form__loader"></span>
         </button>
       </form>
-      <p class="register__login">
+      <p class="login-register__message">
         Déjà un accès ? <br>
         <RouterLink to="/login">Se connecter</RouterLink>
       </p>
@@ -72,22 +72,19 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const defaultUri = import.meta.env.VITE_API_URL;
-const router  = useRouter()
-const loading = ref(false)
-
-console.log(defaultUri);
-
+const router  = useRouter();
+const loading = ref(false);
 
 const form = reactive({
   username: '',
   email:    '',
   password: '',
   confirm:  '',
-})
+});
 
 const errors = reactive({
   username: '',
@@ -95,7 +92,7 @@ const errors = reactive({
   password: '',
   confirm:  '',
   global:   '',
-})
+});
 
 function validate() {
   errors.username = ''

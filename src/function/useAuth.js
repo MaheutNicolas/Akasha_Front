@@ -5,7 +5,7 @@ const TOKEN_KEY = 'akasha_token'
 const USER_KEY  = 'akasha_user'
 
 const token = ref(localStorage.getItem(TOKEN_KEY) ?? null);
-const user  = ref(JSON.parse(localStorage.getItem(USER_KEY) ?? 'null'));
+const user  = ref(localStorage.getItem(USER_KEY) ?? null);
 
 function useAuth() {
 
