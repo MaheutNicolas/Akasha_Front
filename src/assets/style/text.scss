@@ -1,0 +1,79 @@
+@use './variable.scss' as *;
+
+
+
+// ── Import fonts ──────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap');
+
+// ── Base ──────────────────────────────────────────
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-mono;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $text;
+}
+
+// ── Titres ────────────────────────────────────────
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: $text;
+}
+
+h1 { font-size: $font-title; }
+h2 { font-size: $font-title; }
+h3 { font-size: $font-highlight; }
+h4 { font-size: $font-highlight; letter-spacing: 0.14em; }
+
+// ── Corps ─────────────────────────────────────────
+p {
+  font-size: $font-text;
+  line-height: 1.75;
+  color: $text;
+}
+
+// ── Lore / citations ──────────────────────────────
+.text-lore {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: $font-text;
+  line-height: 1.75;
+  color: $text-muted;
+}
+
+// ── Labels système ────────────────────────────────
+.text-label {
+  font-size: $font-text;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+// ── Terminal output ───────────────────────────────
+.text-terminal {
+  font-size: $font-text;
+  line-height: 1.8;
+  color: $text-muted;
+
+  &.valid   { color: $green; }
+  &.warn { color: $amber; }
+  &.err  { color: $red;   }
+  &.rune { color: $blue; font-family: $font-display; font-size: 0.9rem; }
+}
+
+// ── Utilitaires ───────────────────────────────────
+.text-blue   { color: $blue; }
+.text-amber  { color: $amber; }
+.text-green  { color: $green; }
+.text-muted  { color: $text-muted; }
+.text-dim    { color: $text-dim; }
+
+.text-mono    { font-family: $font-mono; }
+.text-display { font-family: $font-display; }

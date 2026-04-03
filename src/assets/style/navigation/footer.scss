@@ -1,0 +1,14 @@
+@use '../shared.scss' as *;
+
+.footer {
+  border-top: 1px solid $border;
+  background: $surface;
+  height: $footer-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $spacing-lg;
+  gap: $spacing-lg;
+  
+  &__version { color: $light-blue; }
+}

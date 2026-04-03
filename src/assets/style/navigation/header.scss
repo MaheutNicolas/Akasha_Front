@@ -1,0 +1,78 @@
+@use '../shared.scss' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid $border;
+  background: $surface;
+  padding: 10px;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    padding: 0 $spacing-lg;
+    gap: $spacing-lg;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-weight: 900;
+    font-size: $font-title;
+    letter-spacing: 0.28em;
+    color: $blue;
+    text-decoration: none;
+    flex-shrink: 0;
+
+    &:hover { 
+        color: $light-blue;
+    }
+  }
+
+  &__links {
+    display: flex;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+
+    li { height: 100%; display: flex; }
+
+    a {
+      display: flex;
+      align-items: center;
+      padding: 0 $spacing-md;
+      font-family: $font-mono;
+      font-size: $font-highlight;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: $text-muted;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+
+      &:hover { color: $text; }
+
+      &.is-active {
+        color: $blue;
+        border-bottom-color: $blue;
+      }
+    }
+  }
+
+  &__right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__player {
+    font-family: $font-mono;
+    font-size: $font-highlight;
+    letter-spacing: 0.1em;
+    color: $blue;
+  }
+}

@@ -1,0 +1,81 @@
+@use './responsive.scss' as *;
+
+// Couleurs
+$bg:         #07080d;
+$bg-deep:    #040508;
+$surface:    #0d1018;
+
+$border:     #181e2c;
+$border2:    #222a3e;
+
+$blue:       #5b9bd5;
+$light-blue: #81b7ea;
+$green:      #3aab72;
+$amber:      #c9893a;
+$red:        #c4504a;
+
+$text:       #b8c8e0;
+$text-muted: #4a5870;
+$text-dim:   #22293a;
+
+// Typographie
+$font-display: 'Cinzel', serif;
+$font-mono:    'Share Tech Mono', monospace;
+
+// Font Size
+$font-title: 45px;
+$font-highlight: 24px;
+$font-text: 18px;
+$font-small: 15px;
+
+// Layout
+$header-height: 44px;
+$footer-height: 120px;
+
+// Espacements
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 28px;
+$spacing-xl:  36px;
+
+// Animation
+@keyframes blink {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+
+// Resizable text
+.resizable-title {
+  font-size: $font-title;
+
+  @include md {
+    font-size: $font-highlight;
+  }
+}
+
+.resizable-highlight {
+  font-size: $font-highlight;
+
+  @include md {
+    font-size: $font-text;
+  }
+}
+
+.resizable-text {
+  font-size: $font-text;
+
+  @include md {
+    font-size: $font-small;
+  }
+}
