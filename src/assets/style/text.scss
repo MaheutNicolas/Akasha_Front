@@ -1,7 +1,5 @@
 @use './variable.scss' as *;
 
-
-
 // ── Import fonts ──────────────────────────────────
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap');
 
@@ -51,7 +49,6 @@ p {
 // ── Labels système ────────────────────────────────
 .text-label {
   font-size: $font-text;
-  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: $text-muted;
 }

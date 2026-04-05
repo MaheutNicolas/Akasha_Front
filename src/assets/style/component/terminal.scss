@@ -1,0 +1,122 @@
+@use '../shared.scss' as *;
+
+// ── Shell ────────────────────────────────────────────────────────────────────
+
+.t-shell {
+    display: flex;
+    flex-direction: column;
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: $font-mono;
+    height: 100%;
+    min-height: 480px;
+}
+
+// ── Chrome ───────────────────────────────────────────────────────────────────
+
+.t-chrome {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    background: $surface;
+    border-bottom: 1px solid $border;
+    flex-shrink: 0;
+
+    .t-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        &.first {
+            background-color: $amber;
+        }
+
+        &.second {
+            background-color: $blue;
+        }
+
+        &.third {
+            background-color: $light-blue;
+        }
+    }
+
+    &__title {
+        font-family: $font-display;
+        color: $blue;
+        font-size: $font-small;
+        margin-left: $spacing-sm;
+        flex: 1;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+// ── Feed ─────────────────────────────────────────────────────────────────────
+
+.t-feed {
+    height: 400px;
+    overflow-y: scroll;
+    padding: $spacing-md $spacing-md $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: $border transparent;
+
+    &::-webkit-scrollbar       { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: $border; border-radius: 2px; }
+}
+
+// ── Message ──────────────────────────────────────────────────────────────────
+
+.t-msg {
+    border-bottom: 1px solid $bg-deep;
+
+    &:last-child { border-bottom: none; }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-xs;
+        margin-top: $spacing-lg;
+    }
+
+    &__source {
+        @extend .text-label;
+        padding: 2px 7px;
+        border-radius: 2px;
+
+        &.src-sys    { background: $surface; color: $blue;       border: 1px solid $blue; }
+        &.src-lore   { background: $surface; color: $text-muted; border: 1px solid $border;  font-family: $font-display; }
+        &.src-warn   { background: $bg-deep; color: $amber;      border: 1px solid $amber; }
+        &.src-env    { background: $bg-deep; color: $green;      border: 1px solid $green; }
+    }
+
+    &__time {
+        font-size: 10px;
+        color: $text-dim;
+        margin-left: auto;
+    }
+
+    &__body {
+        @extend .text-terminal;
+        padding-left: 2px;
+
+        :deep(.hl)     { color: $text; }
+        :deep(.accent) { color: $blue; }
+        :deep(.lore)   { color: $text-muted; font-style: italic; font-family: $font-display; }
+        :deep(.warn)   { color: $amber; }
+        :deep(.good)   { color: $green; }
+    }
+}
+
+// ── Transitions ──────────────────────────────────────────────────────────────
+
+.msg-enter-active {
+  animation: fadeUp 0.8s ease;
+}

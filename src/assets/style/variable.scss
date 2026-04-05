@@ -6,16 +6,19 @@ $bg-deep:    #040508;
 $surface:    #0d1018;
 
 $border:     #181e2c;
-$border2:    #222a3e;
+$border2:    #3a4562;
 
 $blue:       #5b9bd5;
-$light-blue: #81b7ea;
+$light-blue: #92c5f6;
 $green:      #3aab72;
+$light-green:#98f1c5;
 $amber:      #c9893a;
+$light-amber:#f9cb93;
 $red:        #c4504a;
+$light-red:  #ffa6a2;
 
 $text:       #b8c8e0;
-$text-muted: #4a5870;
+$text-muted: #7e899e;
 $text-dim:   #22293a;
 
 // Typographie
@@ -77,5 +80,24 @@ $spacing-xl:  36px;
 
   @include md {
     font-size: $font-small;
+  }
+}
+
+.btn {
+  padding: $spacing-md $spacing-lg;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 6px;
+  color: $text;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+  &:hover {
+    border-color: rgba($blue, 0.4);
+    background: rgba($blue, 0.04);
+    color: $blue;
+
+    .home__item-arrow { color: $blue; opacity: 1; }
+    .home__item-icon  { color: $blue; }
   }
 }

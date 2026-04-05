@@ -37,13 +37,7 @@ function useAuth() {
     localStorage.removeItem(USER_KEY)
   }
 
-  function getAuthHeader() {
-    return token.value
-      ? { Authorization: `Bearer ${token.value}` }
-      : {}
-  }
-
-  return { token, user, isLoggedIn, login, logout, getAuthHeader }
+  return { token, user, isLoggedIn, login, logout }
 }
 
 export default useAuth;

@@ -49,6 +49,28 @@
   }
 }
 
+.btn {
+  padding: 16px 28px;
+  background: #0d1018;
+  border: 1px solid #181e2c;
+  border-radius: 6px;
+  color: #b8c8e0;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.btn:hover {
+  border-color: rgba(91, 155, 213, 0.4);
+  background: rgba(91, 155, 213, 0.04);
+  color: #5b9bd5;
+}
+.btn:hover .home__item-arrow {
+  color: #5b9bd5;
+  opacity: 1;
+}
+.btn:hover .home__item-icon {
+  color: #5b9bd5;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -97,31 +119,30 @@ p {
   font-style: italic;
   font-size: 18px;
   line-height: 1.75;
-  color: #4a5870;
+  color: #7e899e;
 }
 
-.text-label {
+.text-label, .t-msg__source {
   font-size: 18px;
-  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #4a5870;
+  color: #7e899e;
 }
 
-.text-terminal {
+.text-terminal, .t-msg__body {
   font-size: 18px;
   line-height: 1.8;
-  color: #4a5870;
+  color: #7e899e;
 }
-.text-terminal.valid {
+.text-terminal.valid, .valid.t-msg__body {
   color: #3aab72;
 }
-.text-terminal.warn {
+.text-terminal.warn, .warn.t-msg__body {
   color: #c9893a;
 }
-.text-terminal.err {
+.text-terminal.err, .err.t-msg__body {
   color: #c4504a;
 }
-.text-terminal.rune {
+.text-terminal.rune, .rune.t-msg__body {
   color: #5b9bd5;
   font-family: "Cinzel", serif;
   font-size: 0.9rem;
@@ -140,7 +161,7 @@ p {
 }
 
 .text-muted {
-  color: #4a5870;
+  color: #7e899e;
 }
 
 .text-dim {
@@ -217,7 +238,7 @@ input, textarea {
   gap: 28px;
 }
 .footer__version {
-  color: #81b7ea;
+  color: #92c5f6;
 }
 
 .header {
@@ -239,13 +260,12 @@ input, textarea {
   font-family: "Cinzel", serif;
   font-weight: 900;
   font-size: 45px;
-  letter-spacing: 0.28em;
   color: #5b9bd5;
   text-decoration: none;
   flex-shrink: 0;
 }
 .header__logo:hover {
-  color: #81b7ea;
+  color: #92c5f6;
 }
 .header__links {
   display: flex;
@@ -265,9 +285,8 @@ input, textarea {
   padding: 0 16px;
   font-family: "Share Tech Mono", monospace;
   font-size: 24px;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #4a5870;
+  color: #7e899e;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -288,7 +307,6 @@ input, textarea {
 .header__player {
   font-family: "Share Tech Mono", monospace;
   font-size: 24px;
-  letter-spacing: 0.1em;
   color: #5b9bd5;
 }
 
@@ -319,26 +337,346 @@ input, textarea {
 .login-register__title {
   font-family: "Cinzel", serif;
   font-weight: 900;
-  letter-spacing: 0.28em;
   color: #5b9bd5;
 }
 .login-register__sub {
-  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #4a5870;
+  color: #7e899e;
 }
 .login-register__message {
   text-align: center;
   font-size: 15px;
-  color: #4a5870;
-  letter-spacing: 0.06em;
+  color: #7e899e;
 }
 .login-register__message a {
   color: #5b9bd5;
   transition: color 0.15s;
 }
 .login-register__message a:hover {
-  color: #81b7ea;
+  color: #92c5f6;
+}
+
+.home {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 28px;
+}
+.home__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.home__title {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: #5b9bd5;
+}
+.home__sub {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #7e899e;
+}
+.home__nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 340px;
+  gap: 8px;
+}
+.home__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 28px;
+  background: #0d1018;
+  border: 1px solid #181e2c;
+  border-radius: 6px;
+  color: #b8c8e0;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  position: relative;
+}
+.home__item:hover {
+  border-color: rgba(91, 155, 213, 0.4);
+  background: rgba(91, 155, 213, 0.04);
+  color: #5b9bd5;
+}
+.home__item:hover .home__item-arrow {
+  color: #5b9bd5;
+  opacity: 1;
+}
+.home__item:hover .home__item-icon {
+  color: #5b9bd5;
+}
+.home__item-icon {
+  font-size: 1rem;
+  color: #7e899e;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.home__item-label {
+  flex: 1;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+}
+.home__item-badge {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  background: rgba(91, 155, 213, 0.12);
+  border: 1px solid rgba(91, 155, 213, 0.3);
+  color: #5b9bd5;
+  border-radius: 3px;
+  padding: 1px 7px;
+  flex-shrink: 0;
+}
+.home__item-arrow {
+  font-size: 0.75rem;
+  color: #22293a;
+  opacity: 0.4;
+  transition: color 0.15s, opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.mail {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100%;
+  min-height: 60vh;
+}
+.mail__list {
+  border-right: 1px solid #181e2c;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #0d1018;
+}
+.mail__list-head {
+  padding: 16px 28px;
+  border-top: 1px solid #181e2c;
+  border-bottom: 1px solid #181e2c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.mail__list-title {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #7e899e;
+}
+.mail__list-count {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #5b9bd5;
+  background: rgba(91, 155, 213, 0.1);
+  border: 1px solid rgba(91, 155, 213, 0.25);
+  border-radius: 3px;
+  padding: 1px 7px;
+}
+.mail__list-body {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #181e2c transparent;
+}
+.mail__item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 28px;
+  border: none;
+  border-bottom: 1px solid #181e2c;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s;
+  position: relative;
+}
+.mail__item:hover {
+  background: rgba(91, 155, 213, 0.03);
+}
+.mail__item.is-active {
+  background: rgba(91, 155, 213, 0.06);
+  border-left: 2px solid #5b9bd5;
+  padding-left: 27px;
+}
+.mail__item-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #5b9bd5;
+  box-shadow: 0 0 5px rgba(91, 155, 213, 0.5);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.mail__item-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mail__item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.mail__item-from {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #b8c8e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.is-unread .mail__item-from {
+  color: #5b9bd5;
+}
+.mail__item-date {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #7e899e;
+  flex-shrink: 0;
+}
+.mail__item-subject {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #7e899e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.is-unread .mail__item-subject {
+  color: #b8c8e0;
+}
+.mail__detail {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #181e2c transparent;
+}
+.mail__detail-head {
+  padding: 28px 36px;
+  border-bottom: 1px solid #181e2c;
+  flex-shrink: 0;
+}
+.mail__detail-subject {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #b8c8e0;
+  margin-bottom: 8px;
+}
+.mail__detail-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mail__detail-from {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #5b9bd5;
+}
+.mail__detail-sep {
+  color: #22293a;
+  font-size: 15px;
+}
+.mail__detail-date {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #7e899e;
+}
+.mail__detail-body {
+  padding: 36px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.mail__detail-p {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #b8c8e0;
+}
+.mail__attachments {
+  padding: 28px 36px;
+  border-top: 1px solid #181e2c;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.mail__attachments-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #7e899e;
+}
+.mail__attachments-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mail__attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.mail__attachment:hover {
+  border-color: rgba(91, 155, 213, 0.4);
+  background: rgba(91, 155, 213, 0.04);
+}
+.mail__attachment-icon {
+  font-size: 0.75rem;
+  color: #5b9bd5;
+}
+.mail__attachment-name {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #b8c8e0;
+}
+.mail__attachment-size {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #7e899e;
+}
+.mail__empty {
+  padding: 28px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #7e899e;
+}
+.mail__empty--center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.mail__empty-icon {
+  font-size: 1.5rem;
+  color: #22293a;
 }
 
 .form {
@@ -353,9 +691,8 @@ input, textarea {
 }
 .form__label {
   font-size: 18px;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #4a5870;
+  color: #7e899e;
 }
 .form__input {
   background: #07080d;
@@ -370,7 +707,7 @@ input, textarea {
   color: #22293a;
 }
 .form__input:focus {
-  border-color: #222a3e;
+  border-color: #3a4562;
 }
 .form__input.is-error {
   border-color: #c4504a;
@@ -378,7 +715,6 @@ input, textarea {
 .form__error {
   font-size: 15px;
   color: #c4504a;
-  letter-spacing: 0.06em;
 }
 .form__error--global {
   text-align: center;
@@ -394,7 +730,6 @@ input, textarea {
   border: 1px solid rgba(91, 155, 213, 0.3);
   border-radius: 4px;
   font-size: 18px;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #5b9bd5;
   transition: all 0.15s;
@@ -415,4 +750,216 @@ input, textarea {
   border-top-color: #5b9bd5;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
+}
+
+.t-shell {
+  display: flex;
+  flex-direction: column;
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "Share Tech Mono", monospace;
+  height: 100%;
+  min-height: 480px;
+}
+
+.t-chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #0d1018;
+  border-bottom: 1px solid #181e2c;
+  flex-shrink: 0;
+}
+.t-chrome .t-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.t-chrome .t-dot.first {
+  background-color: #c9893a;
+}
+.t-chrome .t-dot.second {
+  background-color: #5b9bd5;
+}
+.t-chrome .t-dot.third {
+  background-color: #92c5f6;
+}
+.t-chrome__title {
+  font-family: "Cinzel", serif;
+  color: #5b9bd5;
+  font-size: 15px;
+  margin-left: 8px;
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.t-feed {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 16px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #181e2c transparent;
+}
+.t-feed::-webkit-scrollbar {
+  width: 4px;
+}
+.t-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+.t-feed::-webkit-scrollbar-thumb {
+  background: #181e2c;
+  border-radius: 2px;
+}
+
+.t-msg {
+  border-bottom: 1px solid #040508;
+}
+.t-msg:last-child {
+  border-bottom: none;
+}
+.t-msg__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  margin-top: 28px;
+}
+.t-msg__source {
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.t-msg__source.src-sys {
+  background: #0d1018;
+  color: #5b9bd5;
+  border: 1px solid #5b9bd5;
+}
+.t-msg__source.src-lore {
+  background: #0d1018;
+  color: #7e899e;
+  border: 1px solid #181e2c;
+  font-family: "Cinzel", serif;
+}
+.t-msg__source.src-warn {
+  background: #040508;
+  color: #c9893a;
+  border: 1px solid #c9893a;
+}
+.t-msg__source.src-env {
+  background: #040508;
+  color: #3aab72;
+  border: 1px solid #3aab72;
+}
+.t-msg__time {
+  font-size: 10px;
+  color: #22293a;
+  margin-left: auto;
+}
+.t-msg__body {
+  padding-left: 2px;
+}
+.t-msg__body :deep(.hl) {
+  color: #b8c8e0;
+}
+.t-msg__body :deep(.accent) {
+  color: #5b9bd5;
+}
+.t-msg__body :deep(.lore) {
+  color: #7e899e;
+  font-style: italic;
+  font-family: "Cinzel", serif;
+}
+.t-msg__body :deep(.warn) {
+  color: #c9893a;
+}
+.t-msg__body :deep(.good) {
+  color: #3aab72;
+}
+
+.msg-enter-active {
+  animation: fadeUp 0.8s ease;
+}
+
+.rune-grid-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.rune-grid__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+.rune-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(4, 80px);
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+.rune-grid__cell {
+  width: 80px;
+  height: 80px;
+  background: #0d1018;
+  border: 1px solid #181e2c;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.rune-grid__cell:hover {
+  border-color: #3a4562;
+}
+.rune-grid__cell.is-selected {
+  border-color: rgba(91, 155, 213, 0.5);
+  background: rgba(91, 155, 213, 0.05);
+}
+.rune-grid__cell.is-first {
+  border-color: rgba(58, 171, 114, 0.6);
+}
+.rune-grid__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #181e2c;
+  transition: all 0.15s;
+}
+.is-selected .rune-grid__dot {
+  background: #5b9bd5;
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 8px rgba(91, 155, 213, 0.6);
+}
+.is-first .rune-grid__dot {
+  background: #5b9bd5;
+  box-shadow: 0 0 10px rgba(91, 155, 213, 0.7);
+}
+.rune-grid__order {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #5b9bd5;
+  line-height: 1;
+}
+
+.back {
+  width: 100%;
+  padding: 20px;
 }/*# sourceMappingURL=index.css.map */
