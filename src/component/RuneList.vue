@@ -1,5 +1,6 @@
 <template>
   <div class="rune-list">
+
     <div
       v-for="rune in runes"
       :key="rune.id"
@@ -10,16 +11,17 @@
       }"
       @click="!readonly && emit('select', rune)"
     >
-      <span class="rune-list__symbol">{{ rune.symbol }}</span>
-      <div class="rune-list__info">
-        <span class="rune-list__name">{{ rune.name }}</span>
-      </div>
+      <img class="rune-list__preview" :src="rune.image" alt="">
+
+      <span class="rune-list__name">{{ rune.name }}</span>
+
       <span class="rune-list__arrow" v-if="!readonly">→</span>
     </div>
 
     <div class="rune-list__empty" v-if="runes.length === 0">
       Aucune rune forgée
     </div>
+
   </div>
 </template>
 

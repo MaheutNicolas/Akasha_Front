@@ -30,7 +30,7 @@
     </div>
 
     <div class="rune-create__right">
-      <RuneList :runes="runes"/>
+      <RuneList :runes="runes" :readonly="true"/>
 
     </div>
 
@@ -53,41 +53,111 @@ const errors      = reactive({ name: '', global: '' })
 
 const runes = [
   {
-    "id": "uuid",
-    "symbol": "ᛚ",
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
+    "image": "/search.svg"
   },
    {
-    "id": "uuid",
-    "symbol": "ᛚ",
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
+    "image": "/search.svg"
   },
    {
-    "id": "uuid",
-    "symbol": "ᛚ",
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
+    "image": "/search.svg"
   },
-   {
-    "id": "uuid",
-    "symbol": "ᛚ",
+  {
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
+    "image": "/search.svg"
   },
-   {
-    "id": "uuid",
-    "symbol": "ᛚ",
+  {
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
+    "image": "/search.svg"
   },
-   {
-    "id": "uuid",
-    "symbol": "ᛚ",
+  {
+    "id": "1",
     "name": "Lister",
-    "path": [1, 2, 3, 4]
-  }
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  {
+    "id": "1",
+    "name": "Lister",
+    "image": "/search.svg"
+  },
+  
 ]
 
 function handleReset() {

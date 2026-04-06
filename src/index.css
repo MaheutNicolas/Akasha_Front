@@ -1075,6 +1075,18 @@ input, textarea {
   color: #c4504a;
 }
 
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.game__column {
+  padding: 10px;
+}
+.game__map {
+  height: 400px;
+  width: 100%;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -1361,57 +1373,57 @@ input, textarea {
 }
 
 .rune-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+  max-height: 80vh;
+  height: 100%;
+  overflow-y: scroll;
 }
 .rune-list__item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 16px;
+  gap: 16px;
+  padding: 8px 16px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
-  text-align: center;
 }
 .rune-list__item:hover:not(.is-readonly) {
   border-color: rgba(91, 155, 213, 0.4);
   background: rgba(91, 155, 213, 0.04);
 }
+.rune-list__item:hover:not(.is-readonly) .rune-list__arrow {
+  color: #5b9bd5;
+  opacity: 1;
+}
 .rune-list__item.is-active {
-  border-color: rgba(91, 155, 213, 0.6);
-  background: rgba(91, 155, 213, 0.07);
+  border-color: rgba(91, 155, 213, 0.5);
+  background: rgba(91, 155, 213, 0.06);
+  border-left: 2px solid #5b9bd5;
+  padding-left: 15px;
 }
 .rune-list__item.is-readonly {
   cursor: default;
 }
-.rune-list__symbol {
-  font-family: "Cinzel", serif;
-  font-size: 1.6rem;
-  color: #5b9bd5;
-  line-height: 1;
-}
-.rune-list__info {
+.rune-list__preview {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
+  align-items: center;
+  justify-content: center;
+}
+.rune-list__preview svg {
   width: 100%;
+  height: 100%;
 }
 .rune-list__name {
+  flex: 1;
   font-size: 15px;
   color: #d1def2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.rune-list__path {
-  font-size: 15px;
-  color: #384158;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1419,15 +1431,148 @@ input, textarea {
 .rune-list__arrow {
   font-size: 15px;
   color: #384158;
-  transition: color 0.15s;
-}
-.rune-list__item:hover .rune-list__arrow {
-  color: #5b9bd5;
+  opacity: 0.4;
+  flex-shrink: 0;
+  transition: color 0.15s, opacity 0.15s;
 }
 .rune-list__empty {
-  grid-column: 1/-1;
+  font-family: "Share Tech Mono", monospace;
   font-size: 15px;
   color: #959fb3;
   text-align: center;
   padding: 36px;
+}
+
+.game-map__viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
+  border-radius: 6px;
+}
+.game-map__viewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #0d0f18 0%, transparent 8%, transparent 92%, #0d0f18 100%), linear-gradient(to bottom, #0d0f18 0%, transparent 8%, transparent 92%, #0d0f18 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.game-map__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  display: inline-flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.game-map__row {
+  display: flex;
+}
+.game-map__cell {
+  display: inline-block;
+  width: 0.65em;
+  text-align: center;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  user-select: none;
+}
+.game-map__cell.is-empty {
+  color: transparent;
+}
+.game-map__cell.is-path {
+  color: #536082;
+}
+.game-map__cell.is-node {
+  color: #959fb3;
+}
+.game-map__cell.is-player {
+  color: #3aab72;
+  text-shadow: 0 0 8px rgba(58, 171, 114, 0.8);
+}
+.game-map__cell.is-enemy {
+  color: #c9893a;
+}
+.game-map__cell.is-boss {
+  color: #c4504a;
+  animation: blink 1.2s ease-in-out infinite;
+}
+.game-map__cell.is-item {
+  color: #5b9bd5;
+}
+.game-map__cell.is-locked {
+  color: #c4504a;
+}
+.game-map__cell.is-visited {
+  color: #384158;
+}
+
+.dpad {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48px 48px 48px;
+  grid-template-rows: 48px 48px 48px;
+  grid-template-areas: ". up ." "left center right" ". down .";
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.dpad__btn {
+  width: 48px;
+  height: 48px;
+  background: #171b29;
+  border: 1px solid #242b3d;
+  border-radius: 6px;
+  color: #959fb3;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+  cursor: pointer;
+}
+.dpad__btn:hover:not(:disabled) {
+  border-color: rgba(91, 155, 213, 0.5);
+  color: #5b9bd5;
+  background: rgba(91, 155, 213, 0.06);
+}
+.dpad__btn:active:not(:disabled) {
+  transform: scale(0.93);
+  background: rgba(91, 155, 213, 0.1);
+}
+.dpad__btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.dpad__btn--up {
+  grid-area: up;
+}
+.dpad__btn--left {
+  grid-area: left;
+}
+.dpad__btn--right {
+  grid-area: right;
+}
+.dpad__btn--down {
+  grid-area: down;
+}
+.dpad__center {
+  grid-area: center;
+  width: 48px;
+  height: 48px;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dpad__center-icon {
+  font-size: 0.7rem;
+  color: #384158;
 }/*# sourceMappingURL=index.css.map */
