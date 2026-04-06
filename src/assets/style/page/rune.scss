@@ -13,7 +13,9 @@
     align-items: center;
     justify-content: center;
     gap: $spacing-xl;
-    padding: $spacing-xl;
+    padding-left: $spacing-xl;
+    padding-right: $spacing-xl;
+    padding-bottom: $spacing-xl;
     border-right: 1px solid $border;
   }
 

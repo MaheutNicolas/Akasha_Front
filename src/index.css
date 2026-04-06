@@ -52,8 +52,8 @@
 
 .btn {
   padding: 16px 28px;
-  background: #0d1018;
-  border: 1px solid #181e2c;
+  background: #171b29;
+  border: 1px solid #242b3d;
   border-radius: 6px;
   color: #d1def2;
   text-decoration: none;
@@ -189,7 +189,7 @@ html {
 }
 
 body {
-  background: #07080d;
+  background: #0d0f18;
   color: #d1def2;
   font-family: "Share Tech Mono", monospace;
   min-height: 100vh;
@@ -229,8 +229,8 @@ input, textarea {
 }
 
 .footer {
-  border-top: 1px solid #181e2c;
-  background: #0d1018;
+  border-top: 1px solid #242b3d;
+  background: #171b29;
   height: 120px;
   display: flex;
   align-items: center;
@@ -246,8 +246,8 @@ input, textarea {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #181e2c;
-  background: #0d1018;
+  border-bottom: 1px solid #242b3d;
+  background: #171b29;
   padding: 10px;
 }
 .header__nav {
@@ -321,8 +321,8 @@ input, textarea {
 .login-register__card {
   width: 100%;
   max-width: 380px;
-  background: #0d1018;
-  border: 1px solid #181e2c;
+  background: #171b29;
+  border: 1px solid #242b3d;
   border-radius: 8px;
   padding: 36px;
   display: flex;
@@ -396,8 +396,8 @@ input, textarea {
   align-items: center;
   gap: 16px;
   padding: 16px 28px;
-  background: #0d1018;
-  border: 1px solid #181e2c;
+  background: #171b29;
+  border: 1px solid #242b3d;
   border-radius: 6px;
   color: #d1def2;
   text-decoration: none;
@@ -454,16 +454,16 @@ input, textarea {
   min-height: 60vh;
 }
 .mail__list {
-  border-right: 1px solid #181e2c;
+  border-right: 1px solid #242b3d;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: #0d1018;
+  background: #171b29;
 }
 .mail__list-head {
   padding: 16px 28px;
-  border-top: 1px solid #181e2c;
-  border-bottom: 1px solid #181e2c;
+  border-top: 1px solid #242b3d;
+  border-bottom: 1px solid #242b3d;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -488,7 +488,7 @@ input, textarea {
   flex: 1;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #181e2c transparent;
+  scrollbar-color: #242b3d transparent;
 }
 .mail__item {
   width: 100%;
@@ -497,7 +497,7 @@ input, textarea {
   gap: 8px;
   padding: 16px 28px;
   border: none;
-  border-bottom: 1px solid #181e2c;
+  border-bottom: 1px solid #242b3d;
   background: transparent;
   text-align: left;
   cursor: pointer;
@@ -567,11 +567,11 @@ input, textarea {
   flex-direction: column;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #181e2c transparent;
+  scrollbar-color: #242b3d transparent;
 }
 .mail__detail-head {
   padding: 28px 36px;
-  border-bottom: 1px solid #181e2c;
+  border-bottom: 1px solid #242b3d;
   flex-shrink: 0;
 }
 .mail__detail-subject {
@@ -608,14 +608,13 @@ input, textarea {
   gap: 16px;
 }
 .mail__detail-p {
-  font-style: italic;
   font-size: 15px;
   line-height: 1.8;
   color: #d1def2;
 }
 .mail__attachments {
   padding: 28px 36px;
-  border-top: 1px solid #181e2c;
+  border-top: 1px solid #242b3d;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -637,8 +636,8 @@ input, textarea {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s;
@@ -685,7 +684,6 @@ input, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 36px;
   padding: 28px;
 }
@@ -740,8 +738,8 @@ input, textarea {
   flex-shrink: 0;
 }
 .explore__input {
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
   padding: 10px 14px;
   font-size: 18px;
@@ -754,7 +752,7 @@ input, textarea {
   color: #384158;
 }
 .explore__input:focus {
-  border-color: #3a4562;
+  border-color: #536082;
 }
 .explore__input.is-error {
   border-color: #c4504a;
@@ -815,8 +813,8 @@ input, textarea {
 .explore__result {
   width: 100%;
   max-width: 360px;
-  background: #0d1018;
-  border: 1px solid #181e2c;
+  background: #171b29;
+  border: 1px solid #242b3d;
   border-radius: 6px;
   padding: 28px;
   display: flex;
@@ -849,7 +847,7 @@ input, textarea {
   font-size: 15px;
   text-transform: uppercase;
   padding: 1px 7px;
-  border: 1px solid #3a4562;
+  border: 1px solid #536082;
   border-radius: 3px;
   color: #959fb3;
 }
@@ -870,7 +868,7 @@ input, textarea {
   flex-direction: column;
   gap: 8px;
   padding-top: 8px;
-  border-top: 1px solid #181e2c;
+  border-top: 1px solid #242b3d;
 }
 .explore__meta-label {
   font-size: 15px;
@@ -902,8 +900,10 @@ input, textarea {
   align-items: center;
   justify-content: center;
   gap: 36px;
-  padding: 36px;
-  border-right: 1px solid #181e2c;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-bottom: 36px;
+  border-right: 1px solid #242b3d;
 }
 .rune-create__header {
   text-align: center;
@@ -937,7 +937,7 @@ input, textarea {
 }
 .rune-create__btn--ghost {
   background: transparent;
-  border: 1px solid #3a4562;
+  border: 1px solid #536082;
   color: #959fb3;
 }
 .rune-create__btn--ghost:hover {
@@ -971,7 +971,7 @@ input, textarea {
   flex-direction: column;
   gap: 28px;
   padding: 36px 28px;
-  background: #0d1018;
+  background: #171b29;
   overflow-y: auto;
 }
 .rune-create__section {
@@ -992,8 +992,8 @@ input, textarea {
   gap: 4px;
   min-height: 32px;
   padding: 8px 16px;
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
 }
 .rune-create__seq-item {
@@ -1013,8 +1013,8 @@ input, textarea {
   color: #384158;
 }
 .rune-create__input {
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
   padding: 10px 14px;
   font-family: "Share Tech Mono", monospace;
@@ -1027,14 +1027,14 @@ input, textarea {
   color: #384158;
 }
 .rune-create__input:focus {
-  border-color: #3a4562;
+  border-color: #536082;
 }
 .rune-create__input.is-error {
   border-color: #c4504a;
 }
 .rune-create__textarea {
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
   padding: 10px 14px;
   font-style: italic;
@@ -1050,7 +1050,7 @@ input, textarea {
   font-style: italic;
 }
 .rune-create__textarea:focus {
-  border-color: #3a4562;
+  border-color: #536082;
 }
 .rune-create__error {
   font-family: "Share Tech Mono", monospace;
@@ -1091,8 +1091,8 @@ input, textarea {
   color: #959fb3;
 }
 .form__input {
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 4px;
   padding: 10px 14px;
   font-size: 15px;
@@ -1103,7 +1103,7 @@ input, textarea {
   color: #384158;
 }
 .form__input:focus {
-  border-color: #3a4562;
+  border-color: #536082;
 }
 .form__input.is-error {
   border-color: #c4504a;
@@ -1151,8 +1151,8 @@ input, textarea {
 .t-shell {
   display: flex;
   flex-direction: column;
-  background: #07080d;
-  border: 1px solid #181e2c;
+  background: #0d0f18;
+  border: 1px solid #242b3d;
   border-radius: 10px;
   overflow: hidden;
   font-family: "Share Tech Mono", monospace;
@@ -1165,8 +1165,8 @@ input, textarea {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: #0d1018;
-  border-bottom: 1px solid #181e2c;
+  background: #171b29;
+  border-bottom: 1px solid #242b3d;
   flex-shrink: 0;
 }
 .t-chrome .t-dot {
@@ -1201,7 +1201,7 @@ input, textarea {
   display: flex;
   flex-direction: column;
   scrollbar-width: thin;
-  scrollbar-color: #181e2c transparent;
+  scrollbar-color: #242b3d transparent;
 }
 .t-feed::-webkit-scrollbar {
   width: 4px;
@@ -1210,12 +1210,12 @@ input, textarea {
   background: transparent;
 }
 .t-feed::-webkit-scrollbar-thumb {
-  background: #181e2c;
+  background: #242b3d;
   border-radius: 2px;
 }
 
 .t-msg {
-  border-bottom: 1px solid #040508;
+  border-bottom: 1px solid #0b0e16;
 }
 .t-msg:last-child {
   border-bottom: none;
@@ -1232,23 +1232,23 @@ input, textarea {
   border-radius: 2px;
 }
 .t-msg__source.src-sys {
-  background: #0d1018;
+  background: #171b29;
   color: #5b9bd5;
   border: 1px solid #5b9bd5;
 }
 .t-msg__source.src-lore {
-  background: #0d1018;
+  background: #171b29;
   color: #959fb3;
-  border: 1px solid #181e2c;
+  border: 1px solid #242b3d;
   font-family: "Cinzel", serif;
 }
 .t-msg__source.src-warn {
-  background: #040508;
+  background: #0b0e16;
   color: #c9893a;
   border: 1px solid #c9893a;
 }
 .t-msg__source.src-env {
-  background: #040508;
+  background: #0b0e16;
   color: #3aab72;
   border: 1px solid #3aab72;
 }
@@ -1307,8 +1307,8 @@ input, textarea {
 .rune-grid__cell {
   width: 80px;
   height: 80px;
-  background: #0d1018;
-  border: 1px solid #181e2c;
+  background: #171b29;
+  border: 1px solid #242b3d;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1319,7 +1319,7 @@ input, textarea {
   user-select: none;
 }
 .rune-grid__cell:hover {
-  border-color: #3a4562;
+  border-color: #536082;
 }
 .rune-grid__cell.is-selected {
   border-color: rgba(91, 155, 213, 0.5);
@@ -1332,7 +1332,7 @@ input, textarea {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #181e2c;
+  background: #242b3d;
   transition: all 0.15s;
 }
 .is-selected .rune-grid__dot {
@@ -1358,4 +1358,76 @@ input, textarea {
 .back {
   width: 100%;
   padding: 20px;
+}
+
+.rune-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.rune-list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #171b29;
+  border: 1px solid #242b3d;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: center;
+}
+.rune-list__item:hover:not(.is-readonly) {
+  border-color: rgba(91, 155, 213, 0.4);
+  background: rgba(91, 155, 213, 0.04);
+}
+.rune-list__item.is-active {
+  border-color: rgba(91, 155, 213, 0.6);
+  background: rgba(91, 155, 213, 0.07);
+}
+.rune-list__item.is-readonly {
+  cursor: default;
+}
+.rune-list__symbol {
+  font-family: "Cinzel", serif;
+  font-size: 1.6rem;
+  color: #5b9bd5;
+  line-height: 1;
+}
+.rune-list__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  width: 100%;
+}
+.rune-list__name {
+  font-size: 15px;
+  color: #d1def2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rune-list__path {
+  font-size: 15px;
+  color: #384158;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rune-list__arrow {
+  font-size: 15px;
+  color: #384158;
+  transition: color 0.15s;
+}
+.rune-list__item:hover .rune-list__arrow {
+  color: #5b9bd5;
+}
+.rune-list__empty {
+  grid-column: 1/-1;
+  font-size: 15px;
+  color: #959fb3;
+  text-align: center;
+  padding: 36px;
 }/*# sourceMappingURL=index.css.map */

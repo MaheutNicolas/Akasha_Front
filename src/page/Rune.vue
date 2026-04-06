@@ -30,57 +30,7 @@
     </div>
 
     <div class="rune-create__right">
-
-      <!-- Séquence -->
-      <div class="rune-create__section">
-        <p class="rune-create__label">Séquence tracée</p>
-        <div class="rune-create__sequence">
-          <template v-if="path.length > 0">
-            <span
-              v-for="(id, i) in path"
-              :key="i"
-              class="rune-create__seq-item"
-            >
-              <span class="rune-create__seq-arrow" v-if="i > 0">→</span>
-              {{ id }}
-            </span>
-          </template>
-          <span class="rune-create__seq-empty" v-else>—</span>
-        </div>
-      </div>
-
-      <!-- Champ nom -->
-      <div class="rune-create__section">
-        <label class="rune-create__label">Nom de la rune</label>
-        <input
-          v-model="name"
-          type="text"
-          class="rune-create__input"
-          :class="{ 'is-error': errors.name }"
-          placeholder="Ex: Lister, Voyager..."
-          maxlength="50"
-        />
-        <span class="rune-create__error" v-if="errors.name">{{ errors.name }}</span>
-      </div>
-
-      <!-- Champ description -->
-      <div class="rune-create__section">
-        <label class="rune-create__label">Description</label>
-        <textarea
-          v-model="description"
-          class="rune-create__textarea"
-          placeholder="Ce que fait cette rune..."
-          rows="4"
-        ></textarea>
-      </div>
-
-      <!-- Feedback -->
-      <div class="rune-create__feedback rune-create__feedback--ok" v-if="result">
-        ✦ Rune "{{ result.name }}" forgée avec succès
-      </div>
-      <div class="rune-create__feedback rune-create__feedback--err" v-if="errors.global">
-        {{ errors.global }}
-      </div>
+      <RuneList :runes="runes"/>
 
     </div>
 
@@ -90,6 +40,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import RuneCreator from '@/component/RuneCreator.vue';
+import RuneList from '@/component/RuneList.vue';
 import Back from '@/component/Back.vue';
 
 const path        = ref([])
@@ -99,6 +50,45 @@ const description = ref('')
 const loading     = ref(false)
 const result      = ref(null)
 const errors      = reactive({ name: '', global: '' })
+
+const runes = [
+  {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  },
+   {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  },
+   {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  },
+   {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  },
+   {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  },
+   {
+    "id": "uuid",
+    "symbol": "ᛚ",
+    "name": "Lister",
+    "path": [1, 2, 3, 4]
+  }
+]
 
 function handleReset() {
   gridRef.value.reset()
