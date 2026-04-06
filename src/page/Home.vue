@@ -1,5 +1,4 @@
 <template>
-    <Header></Header>
     <div class="home">
         <div class="home__header">
         <h1 class="home__title">Menu Principal</h1>
@@ -28,13 +27,9 @@
         </RouterLink>
         </nav>
     </div>
-    <Footer></Footer>
 </template>
 
 <script setup>
-import Header from '@/component/navigation/Header.vue';
-import Footer from '@/component/navigation/Footer.vue';
-
 defineProps({
   unreadCount: { type: Number, default: 2 }
 })

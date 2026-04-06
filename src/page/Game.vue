@@ -25,4 +25,3 @@ function addMessage() {
 
 </script>
 
-<style scoped></style>

@@ -1,0 +1,193 @@
+@use '../shared' as *;
+
+.rune-create {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 0;
+
+  // ── Gauche : grille ────────────────────────────
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xl;
+    padding: $spacing-xl;
+    border-right: 1px solid $border;
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: $font-highlight;
+    color: $text;
+  }
+
+  &__sub {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text-muted;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__btn {
+    font-family: $font-mono;
+    font-size: $font-small;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &--ghost {
+      background: transparent;
+      border: 1px solid $border2;
+      color: $text-muted;
+      &:hover { border-color: $text-muted; color: $text; }
+    }
+
+    &--invoke {
+      background: rgba($blue, 0.08);
+      border: 1px solid rgba($blue, 0.3);
+      color: $blue;
+      &:hover:not(:disabled) {
+        background: rgba($blue, 0.14);
+        border-color: $blue;
+      }
+      &:disabled { opacity: 0.4; cursor: not-allowed; }
+    }
+  }
+
+  &__loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba($blue, 0.3);
+    border-top-color: $blue;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  // ── Droite : formulaire ────────────────────────
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-xl $spacing-lg;
+    background: $surface;
+    overflow-y: auto;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: $font-small;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__sequence {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    min-height: 32px;
+    padding: $spacing-sm $spacing-md;
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: 4px;
+  }
+
+  &__seq-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $blue;
+  }
+
+  &__seq-arrow { color: $text-dim; }
+
+  &__seq-empty {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text-dim;
+  }
+
+  &__input {
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text;
+    transition: border-color 0.15s;
+    width: 100%;
+
+    &::placeholder { color: $text-dim; }
+    &:focus        { border-color: $border2; }
+    &.is-error     { border-color: $red; }
+  }
+
+  &__textarea {
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-style: italic;
+    font-size: $font-small;
+    color: $text;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.15s;
+    width: 100%;
+
+    &::placeholder { color: $text-dim; font-style: italic; }
+    &:focus        { border-color: $border2; }
+  }
+
+  &__error {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $red;
+  }
+
+  &__feedback {
+    padding: $spacing-sm $spacing-md;
+    border-radius: 4px;
+    font-family: $font-mono;
+    font-size: $font-small;
+    animation: fadeUp 0.2s ease;
+
+    &--ok {
+      background: rgba($green, 0.06);
+      border: 1px solid rgba($green, 0.2);
+      color: $green;
+    }
+
+    &--err {
+      background: rgba($red, 0.06);
+      border: 1px solid rgba($red, 0.2);
+      color: $red;
+    }
+  }
+}

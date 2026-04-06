@@ -5,6 +5,7 @@ import Register from './page/Register.vue';
 import Rune from './page/Rune.vue';
 import Game from './page/Game.vue';
 import Email from './page/Email.vue';
+import Explore from './page/Explore.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -12,7 +13,8 @@ const routes = [
   { path: '/register', component: Register },
   { path: '/rune', component: Rune },
   { path: '/game', component: Game },
-  { path: '/mail', component: Email }
+  { path: '/mail', component: Email },
+  { path: '/explore', component: Explore }
 ]
 
 export const router = createRouter({

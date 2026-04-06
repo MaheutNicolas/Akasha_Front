@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap");
 @keyframes blink {
   0%, 100% {
@@ -54,7 +55,7 @@
   background: #0d1018;
   border: 1px solid #181e2c;
   border-radius: 6px;
-  color: #b8c8e0;
+  color: #d1def2;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
@@ -80,7 +81,7 @@ body {
   font-family: "Share Tech Mono", monospace;
   font-size: 16px;
   line-height: 1.6;
-  color: #b8c8e0;
+  color: #d1def2;
 }
 
 h1, h2, h3, h4 {
@@ -88,7 +89,7 @@ h1, h2, h3, h4 {
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: 0.08em;
-  color: #b8c8e0;
+  color: #d1def2;
 }
 
 h1 {
@@ -111,7 +112,7 @@ h4 {
 p {
   font-size: 18px;
   line-height: 1.75;
-  color: #b8c8e0;
+  color: #d1def2;
 }
 
 .text-lore {
@@ -119,19 +120,19 @@ p {
   font-style: italic;
   font-size: 18px;
   line-height: 1.75;
-  color: #7e899e;
+  color: #959fb3;
 }
 
 .text-label, .t-msg__source {
   font-size: 18px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 
 .text-terminal, .t-msg__body {
   font-size: 18px;
   line-height: 1.8;
-  color: #7e899e;
+  color: #959fb3;
 }
 .text-terminal.valid, .valid.t-msg__body {
   color: #3aab72;
@@ -161,11 +162,11 @@ p {
 }
 
 .text-muted {
-  color: #7e899e;
+  color: #959fb3;
 }
 
 .text-dim {
-  color: #22293a;
+  color: #384158;
 }
 
 .text-mono {
@@ -189,7 +190,7 @@ html {
 
 body {
   background: #07080d;
-  color: #b8c8e0;
+  color: #d1def2;
   font-family: "Share Tech Mono", monospace;
   min-height: 100vh;
   line-height: 1.6;
@@ -286,13 +287,13 @@ input, textarea {
   font-family: "Share Tech Mono", monospace;
   font-size: 24px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.15s, border-color 0.15s;
 }
 .header__links a:hover {
-  color: #b8c8e0;
+  color: #d1def2;
 }
 .header__links a.is-active {
   color: #5b9bd5;
@@ -341,12 +342,12 @@ input, textarea {
 }
 .login-register__sub {
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 .login-register__message {
   text-align: center;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
 }
 .login-register__message a {
   color: #5b9bd5;
@@ -381,7 +382,7 @@ input, textarea {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 .home__nav {
   display: flex;
@@ -398,7 +399,7 @@ input, textarea {
   background: #0d1018;
   border: 1px solid #181e2c;
   border-radius: 6px;
-  color: #b8c8e0;
+  color: #d1def2;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
   position: relative;
@@ -417,7 +418,7 @@ input, textarea {
 }
 .home__item-icon {
   font-size: 1rem;
-  color: #7e899e;
+  color: #959fb3;
   width: 20px;
   text-align: center;
   flex-shrink: 0;
@@ -440,7 +441,7 @@ input, textarea {
 }
 .home__item-arrow {
   font-size: 0.75rem;
-  color: #22293a;
+  color: #384158;
   opacity: 0.4;
   transition: color 0.15s, opacity 0.15s;
   flex-shrink: 0;
@@ -472,7 +473,7 @@ input, textarea {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 .mail__list-count {
   font-family: "Share Tech Mono", monospace;
@@ -536,7 +537,7 @@ input, textarea {
 .mail__item-from {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #b8c8e0;
+  color: #d1def2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -547,19 +548,19 @@ input, textarea {
 .mail__item-date {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
   flex-shrink: 0;
 }
 .mail__item-subject {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .is-unread .mail__item-subject {
-  color: #b8c8e0;
+  color: #d1def2;
 }
 .mail__detail {
   display: flex;
@@ -577,7 +578,7 @@ input, textarea {
   font-family: "Cinzel", serif;
   font-weight: 700;
   font-size: 24px;
-  color: #b8c8e0;
+  color: #d1def2;
   margin-bottom: 8px;
 }
 .mail__detail-info {
@@ -591,13 +592,13 @@ input, textarea {
   color: #5b9bd5;
 }
 .mail__detail-sep {
-  color: #22293a;
+  color: #384158;
   font-size: 15px;
 }
 .mail__detail-date {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
 }
 .mail__detail-body {
   padding: 36px;
@@ -610,7 +611,7 @@ input, textarea {
   font-style: italic;
   font-size: 15px;
   line-height: 1.8;
-  color: #b8c8e0;
+  color: #d1def2;
 }
 .mail__attachments {
   padding: 28px 36px;
@@ -624,7 +625,7 @@ input, textarea {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 .mail__attachments-list {
   display: flex;
@@ -653,18 +654,18 @@ input, textarea {
 .mail__attachment-name {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #b8c8e0;
+  color: #d1def2;
 }
 .mail__attachment-size {
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
 }
 .mail__empty {
   padding: 28px;
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
-  color: #7e899e;
+  color: #959fb3;
 }
 .mail__empty--center {
   flex: 1;
@@ -676,7 +677,402 @@ input, textarea {
 }
 .mail__empty-icon {
   font-size: 1.5rem;
-  color: #22293a;
+  color: #384158;
+}
+
+.explore {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 28px;
+}
+.explore__panel {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.explore__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.explore__title {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #d1def2;
+}
+.explore__sub {
+  font-size: 15px;
+  color: #959fb3;
+}
+.explore__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.explore__coords {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+.explore__field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.explore__label {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #959fb3;
+}
+.explore__sep {
+  font-size: 1.4rem;
+  color: #384158;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+.explore__input {
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 18px;
+  color: #d1def2;
+  text-align: center;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.explore__input::placeholder {
+  color: #384158;
+}
+.explore__input:focus {
+  border-color: #3a4562;
+}
+.explore__input.is-error {
+  border-color: #c4504a;
+}
+.explore__input::-webkit-inner-spin-button, .explore__input::-webkit-outer-spin-button {
+  appearance: none;
+}
+.explore__error {
+  font-size: 15px;
+  color: #c4504a;
+  text-align: center;
+}
+.explore__error--global {
+  padding: 8px 16px;
+  background: rgba(196, 80, 74, 0.06);
+  border: 1px solid rgba(196, 80, 74, 0.2);
+  border-radius: 4px;
+  text-align: center;
+}
+.explore__btn {
+  padding: 11px;
+  background: rgba(91, 155, 213, 0.08);
+  border: 1px solid rgba(91, 155, 213, 0.3);
+  border-radius: 4px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #5b9bd5;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+}
+.explore__btn:hover:not(:disabled) {
+  background: rgba(91, 155, 213, 0.14);
+  border-color: #5b9bd5;
+}
+.explore__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.explore__btn--go {
+  background: transparent;
+  border-color: rgba(58, 171, 114, 0.3);
+  color: #3aab72;
+}
+.explore__btn--go:hover {
+  background: rgba(58, 171, 114, 0.06);
+  border-color: #3aab72;
+}
+.explore__loader {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(91, 155, 213, 0.3);
+  border-top-color: #5b9bd5;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.explore__result {
+  width: 100%;
+  max-width: 360px;
+  background: #0d1018;
+  border: 1px solid #181e2c;
+  border-radius: 6px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.25s ease;
+}
+.explore__result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.explore__result-coords {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #959fb3;
+}
+.explore__result-sep {
+  color: #384158;
+}
+.explore__result-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.explore__tag {
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border: 1px solid #3a4562;
+  border-radius: 3px;
+  color: #959fb3;
+}
+.explore__result-name {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #d1def2;
+}
+.explore__result-desc {
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #959fb3;
+}
+.explore__result-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #181e2c;
+}
+.explore__meta-label {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #959fb3;
+}
+.explore__meta-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.explore__meta-item {
+  font-size: 15px;
+  color: #3aab72;
+}
+.explore__meta-item::before {
+  content: "◈ ";
+}
+
+.rune-create {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 0;
+}
+.rune-create__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 36px;
+  border-right: 1px solid #181e2c;
+}
+.rune-create__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rune-create__title {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #d1def2;
+}
+.rune-create__sub {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #959fb3;
+}
+.rune-create__actions {
+  display: flex;
+  gap: 8px;
+}
+.rune-create__btn {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.rune-create__btn--ghost {
+  background: transparent;
+  border: 1px solid #3a4562;
+  color: #959fb3;
+}
+.rune-create__btn--ghost:hover {
+  border-color: #959fb3;
+  color: #d1def2;
+}
+.rune-create__btn--invoke {
+  background: rgba(91, 155, 213, 0.08);
+  border: 1px solid rgba(91, 155, 213, 0.3);
+  color: #5b9bd5;
+}
+.rune-create__btn--invoke:hover:not(:disabled) {
+  background: rgba(91, 155, 213, 0.14);
+  border-color: #5b9bd5;
+}
+.rune-create__btn--invoke:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.rune-create__loader {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(91, 155, 213, 0.3);
+  border-top-color: #5b9bd5;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.rune-create__right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 36px 28px;
+  background: #0d1018;
+  overflow-y: auto;
+}
+.rune-create__section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rune-create__label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #959fb3;
+}
+.rune-create__sequence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 8px 16px;
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 4px;
+}
+.rune-create__seq-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #5b9bd5;
+}
+.rune-create__seq-arrow {
+  color: #384158;
+}
+.rune-create__seq-empty {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #384158;
+}
+.rune-create__input {
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #d1def2;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.rune-create__input::placeholder {
+  color: #384158;
+}
+.rune-create__input:focus {
+  border-color: #3a4562;
+}
+.rune-create__input.is-error {
+  border-color: #c4504a;
+}
+.rune-create__textarea {
+  background: #07080d;
+  border: 1px solid #181e2c;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-style: italic;
+  font-size: 15px;
+  color: #d1def2;
+  line-height: 1.7;
+  resize: vertical;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.rune-create__textarea::placeholder {
+  color: #384158;
+  font-style: italic;
+}
+.rune-create__textarea:focus {
+  border-color: #3a4562;
+}
+.rune-create__error {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #c4504a;
+}
+.rune-create__feedback {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  animation: fadeUp 0.2s ease;
+}
+.rune-create__feedback--ok {
+  background: rgba(58, 171, 114, 0.06);
+  border: 1px solid rgba(58, 171, 114, 0.2);
+  color: #3aab72;
+}
+.rune-create__feedback--err {
+  background: rgba(196, 80, 74, 0.06);
+  border: 1px solid rgba(196, 80, 74, 0.2);
+  color: #c4504a;
 }
 
 .form {
@@ -692,7 +1088,7 @@ input, textarea {
 .form__label {
   font-size: 18px;
   text-transform: uppercase;
-  color: #7e899e;
+  color: #959fb3;
 }
 .form__input {
   background: #07080d;
@@ -700,11 +1096,11 @@ input, textarea {
   border-radius: 4px;
   padding: 10px 14px;
   font-size: 15px;
-  color: #b8c8e0;
+  color: #d1def2;
   transition: border-color 0.15s;
 }
 .form__input::placeholder {
-  color: #22293a;
+  color: #384158;
 }
 .form__input:focus {
   border-color: #3a4562;
@@ -842,7 +1238,7 @@ input, textarea {
 }
 .t-msg__source.src-lore {
   background: #0d1018;
-  color: #7e899e;
+  color: #959fb3;
   border: 1px solid #181e2c;
   font-family: "Cinzel", serif;
 }
@@ -858,20 +1254,20 @@ input, textarea {
 }
 .t-msg__time {
   font-size: 10px;
-  color: #22293a;
+  color: #384158;
   margin-left: auto;
 }
 .t-msg__body {
   padding-left: 2px;
 }
 .t-msg__body :deep(.hl) {
-  color: #b8c8e0;
+  color: #d1def2;
 }
 .t-msg__body :deep(.accent) {
   color: #5b9bd5;
 }
 .t-msg__body :deep(.lore) {
-  color: #7e899e;
+  color: #959fb3;
   font-style: italic;
   font-family: "Cinzel", serif;
 }

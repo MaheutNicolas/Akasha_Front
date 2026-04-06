@@ -1,5 +1,4 @@
 <template>
-    <Header></Header>
     <Back />
     <div class="mail">
 
@@ -87,14 +86,11 @@
             </template>
         </section>
     </div>
-    <Footer></Footer>
 </template>
 
 <script setup>
-import Header from '@/component/navigation/Header.vue';
-import Footer from '@/component/navigation/Footer.vue';
-import Back from '@/component/Back.vue';
 import { ref, computed, onMounted } from 'vue';
+import Back from '@/component/Back.vue';
 import request from '@/function/request';
 
 const mails    = ref([

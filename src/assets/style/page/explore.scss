@@ -1,0 +1,235 @@
+@use '../shared' as *;
+
+.explore {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xl;
+  padding: $spacing-lg;
+
+  &__panel {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: $font-highlight;
+    color: $text;
+  }
+
+  &__sub {
+    font-size: $font-small;
+    color: $text-muted;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__coords {
+    display: flex;
+    align-items: flex-end;
+    gap: $spacing-md;
+  }
+
+  &__field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: $font-small;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__sep {
+    font-size: 1.4rem;
+    color: $text-dim;
+    padding-bottom: $spacing-sm;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: $font-text;
+    color: $text;
+    text-align: center;
+    transition: border-color 0.15s;
+    width: 100%;
+
+    &::placeholder { color: $text-dim; }
+    &:focus        { border-color: $border2; }
+    &.is-error     { border-color: $red; }
+
+    // Masquer les flèches number input
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button { appearance: none; }
+  }
+
+  &__error {
+    font-size: $font-small;
+    color: $red;
+    text-align: center;
+
+    &--global {
+      padding: $spacing-sm $spacing-md;
+      background: rgba($red, 0.06);
+      border: 1px solid rgba($red, 0.2);
+      border-radius: 4px;
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    padding: 11px;
+    background: rgba($blue, 0.08);
+    border: 1px solid rgba($blue, 0.3);
+    border-radius: 4px;
+    font-size: $font-small;
+    text-transform: uppercase;
+    color: $blue;
+    cursor: pointer;
+    transition: all 0.15s;
+    width: 100%;
+
+    &:hover:not(:disabled) {
+      background: rgba($blue, 0.14);
+      border-color: $blue;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--go {
+      background: transparent;
+      border-color: rgba($green, 0.3);
+      color: $green;
+
+      &:hover {
+        background: rgba($green, 0.06);
+        border-color: $green;
+      }
+    }
+  }
+
+  &__loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba($blue, 0.3);
+    border-top-color: $blue;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  // ── Résultat ───────────────────────────────────
+  &__result {
+    width: 100%;
+    max-width: 360px;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 6px;
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    animation: fadeUp 0.25s ease;
+  }
+
+  &__result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-sm;
+  }
+
+  &__result-coords {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-small;
+    color: $text-muted;
+  }
+
+  &__result-sep { color: $text-dim; }
+
+  &__result-tags {
+    display: flex;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    font-size: $font-small;
+    text-transform: uppercase;
+    padding: 1px 7px;
+    border: 1px solid $border2;
+    border-radius: 3px;
+    color: $text-muted;
+  }
+
+  &__result-name {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: $font-highlight;
+    color: $text;
+  }
+
+  &__result-desc {
+    font-style: italic;
+    font-size: $font-small;
+    line-height: 1.75;
+    color: $text-muted;
+  }
+
+  &__result-meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding-top: $spacing-sm;
+    border-top: 1px solid $border;
+  }
+
+  &__meta-label {
+    font-size: $font-small;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__meta-list {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+  }
+
+  &__meta-item {
+    font-size: $font-small;
+    color: $green;
+
+    &::before { content: '◈ '; }
+  }
+}
