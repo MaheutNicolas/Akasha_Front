@@ -88,7 +88,7 @@ async function handleSubmit() {
 
   try {
     await login(form.email, form.password)
-    router.push('/game')
+    router.push('/')
   } catch (e) {
     errors.global = e.message
   } finally {

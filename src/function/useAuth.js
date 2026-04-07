@@ -1,14 +1,16 @@
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const defaultUri = import.meta.env.VITE_API_URL;
-const TOKEN_KEY = 'akasha_token'
-const USER_KEY  = 'akasha_user'
+const TOKEN_KEY = 'akasha_token';
+const USER_KEY  = 'akasha_user';
 
 const token = ref(localStorage.getItem(TOKEN_KEY) ?? null);
 const user  = ref(localStorage.getItem(USER_KEY) ?? null);
 
 function useAuth() {
 
+  const router = useRouter();
   const isLoggedIn = computed(() => !!token.value)
 
   async function login(email, password) {
@@ -23,21 +25,31 @@ function useAuth() {
     const data = await res.json()
 
     token.value = data.token
-    user.value  = data.user
+    user.value  = data.name
 
     localStorage.setItem(TOKEN_KEY, data.token)
-    localStorage.setItem(USER_KEY, JSON.stringify(data.user))
+    localStorage.setItem(USER_KEY, JSON.stringify(data.name))
   }
 
   function logout() {
-    token.value = null
-    user.value  = null
+    token.value = null;
+    user.value  = null;
 
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.removeItem(USER_KEY)
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+
+    router.push('/login')
   }
-
+  
   return { token, user, isLoggedIn, login, logout }
+}
+
+export function setLogin(data) {
+  token.value = data.token
+  user.value  = data.name
+
+  localStorage.setItem(TOKEN_KEY, data.token)
+  localStorage.setItem(USER_KEY, JSON.stringify(data.name))
 }
 
 export default useAuth;

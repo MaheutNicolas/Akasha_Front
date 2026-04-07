@@ -11,7 +11,8 @@
       </ul>
 
       <div class="header__right">
-        <span class="header__player" v-if="player">{{ player }}</span>
+        <span class="header__player" v-if="user">{{ user.replace(/"/g, '')  }}</span>
+        <button @click="logout">Deconnexion</button>
       </div>
 
     </nav>
@@ -20,7 +21,8 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+import useAuth from '@/function/useAuth';
 
-let player = "nico";
+const { user, logout } = useAuth();
 
 </script>

@@ -74,6 +74,7 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { setLogin } from '@/function/useAuth';
 
 const defaultUri = import.meta.env.VITE_API_URL;
 const router  = useRouter();
@@ -102,31 +103,31 @@ function validate() {
   errors.global   = ''
 
   if (!form.username)
-    errors.username = "Nom d'invocateur requis"
+    errors.username = "Nom d'invocateur requis";
   else if (form.username.length < 3)
-    errors.username = "3 caractères minimum"
+    errors.username = "3 caractères minimum";
 
   if (!form.email)
-    errors.email = 'Email requis'
+    errors.email = 'Email requis';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-    errors.email = 'Email invalide'
+    errors.email = 'Email invalide';
 
   if (!form.password)
-    errors.password = 'Mot de passe requis'
+    errors.password = 'Mot de passe requis';
   else if (form.password.length < 8)
-    errors.password = '8 caractères minimum'
+    errors.password = '8 caractères minimum';
 
   if (!form.confirm)
-    errors.confirm = 'Confirmation requise'
+    errors.confirm = 'Confirmation requise';
   else if (form.confirm !== form.password)
-    errors.confirm = 'Les mots de passe ne correspondent pas'
+    errors.confirm = 'Les mots de passe ne correspondent pas';
 
-  return !errors.username && !errors.email && !errors.password && !errors.confirm
+  return !errors.username && !errors.email && !errors.password && !errors.confirm;
 }
 
 async function handleSubmit() {
-  if (!validate()) return
-  loading.value = true
+  if (!validate()) return;
+  loading.value = true;
   try {
     const res = await fetch(defaultUri + '/api/register', {
       method:  'POST',
@@ -137,15 +138,16 @@ async function handleSubmit() {
         password: form.password,
       }),
     })
+    const data = await res.json();
     if (!res.ok) {
-      const data = await res.json()
-      throw new Error(data.message ?? 'Erreur lors de la création du compte')
+      throw new Error(data.message ?? 'Erreur lors de la création du compte');
     }
-    router.push('/login')
+    setLogin(data);
+    router.push('/');
   } catch (e) {
-    errors.global = e.message
+    errors.global = e.message;
   } finally {
-    loading.value = false
+    loading.value = false;
   }
 }
 </script>
