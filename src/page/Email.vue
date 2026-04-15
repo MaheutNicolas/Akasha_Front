@@ -1,5 +1,4 @@
 <template>
-    <Back />
     <div class="mail">
 
         <!-- Liste -->
@@ -90,7 +89,6 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import Back from '@/component/Back.vue';
 import request from '@/function/request';
 
 const mails    = ref([
@@ -122,7 +120,7 @@ const paragraphs = computed(() =>
 
 onMounted(async () => {
   try {
-    mails.value = await request('GET', '/api/email' )
+    mails.value = await request('GET', '/api/emails' )
   } finally {
     loading.value = false
   }

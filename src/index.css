@@ -686,6 +686,7 @@ input, textarea {
   align-items: center;
   gap: 36px;
   padding: 28px;
+  margin-top: 36px;
 }
 .explore__panel {
   width: 100%;
@@ -1365,11 +1366,6 @@ input, textarea {
   font-size: 15px;
   color: #5b9bd5;
   line-height: 1;
-}
-
-.back {
-  width: 100%;
-  padding: 20px;
 }
 
 .rune-list {

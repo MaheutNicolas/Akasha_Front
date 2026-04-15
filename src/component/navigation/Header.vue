@@ -5,9 +5,7 @@
       <RouterLink to="/" class="header__logo">AKASHA</RouterLink>
 
       <ul class="header__links">
-        <!-- <li><RouterLink to="/game" active-class="is-active">Grille</RouterLink></li>
-        <li><RouterLink to="/grimoire" active-class="is-active">Grimoire</RouterLink></li>
-        <li><RouterLink to="/journal" active-class="is-active">Journal</RouterLink></li> -->
+        <button class="back-btn" @click="back" v-if="hasBackButton">Retours</button>
       </ul>
 
       <div class="header__right">
@@ -21,7 +19,16 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+import { router } from '@/router';
 import useAuth from '@/function/useAuth';
+
+const props = defineProps({
+  hasBackButton: Boolean
+})
+
+function back() {
+    router.back();
+}
 
 const { user, logout } = useAuth();
 

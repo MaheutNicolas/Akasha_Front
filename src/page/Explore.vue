@@ -1,5 +1,4 @@
 <template>
-    <Back />
     <div class="explore">
 
         <div class="explore__panel">
@@ -103,7 +102,6 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
-import Back from '@/component/Back.vue';
 import useAuth from '@/function/useAuth';
 
 const { getAuthHeader } = useAuth()

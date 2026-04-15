@@ -1,5 +1,5 @@
 <template>
-  <Header v-if="showHeader" />
+  <Header v-if="showHeader" :hasBackButton="showBack" />
   <RouterView />
   <Footer v-if="showHeader" />
 </template>
@@ -17,9 +17,15 @@ const { isLoggedIn } = useAuth()
 
 const hiddenRoutes  = ['/login', '/register', '/game'];
 const publicRoutes  = ['/login', '/register'];
+const hiddenBackRoutes = [ '/' ];
 
 const showHeader = computed(() =>
   !hiddenRoutes.some(r => route.path.startsWith(r))
+)
+console.log(route.path == '/');
+
+const showBack = computed(() =>
+  !hiddenBackRoutes.some(r => route.path == r)
 )
 
 watch(

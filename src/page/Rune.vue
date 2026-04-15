@@ -2,7 +2,6 @@
   <div class="rune-create">
 
     <div class="rune-create__left">
-      <Back />
       <div class="rune-create__header">
         <h2 class="rune-create__title">Création de rune</h2>
         <p class="rune-create__sub">Tracez un motif sur la grille pour forger une rune</p>
@@ -31,7 +30,6 @@
 
     <div class="rune-create__right">
       <RuneList :runes="runes" :readonly="true"/>
-
     </div>
 
   </div>
@@ -41,7 +39,6 @@
 import { ref, reactive } from 'vue';
 import RuneCreator from '@/component/RuneCreator.vue';
 import RuneList from '@/component/RuneList.vue';
-import Back from '@/component/Back.vue';
 
 const path        = ref([])
 const gridRef     = ref(null)
