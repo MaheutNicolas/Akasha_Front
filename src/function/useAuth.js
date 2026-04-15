@@ -7,10 +7,10 @@ const USER_KEY  = 'akasha_user';
 
 const token = ref(localStorage.getItem(TOKEN_KEY) ?? null);
 const user  = ref(localStorage.getItem(USER_KEY) ?? null);
+const router = useRouter();
 
 function useAuth() {
 
-  const router = useRouter();
   const isLoggedIn = computed(() => !!token.value)
 
   async function login(email, password) {

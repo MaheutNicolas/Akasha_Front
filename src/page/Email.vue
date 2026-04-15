@@ -15,26 +15,26 @@
                 </div>
 
                 <div
-                    v-else-if="mails.length === 0"
+                    v-else-if="emails.length === 0"
                     class="mail__empty" >
                     Aucun message
                 </div>
 
                 <button
                     v-else
-                    v-for="mail in mails"
+                    v-for="mail in emails"
                     :key="mail.id"
                     class="mail__item"
                     :class="{
                         'is-active':  selected?.id === mail.id,
-                        'is-unread':  !mail.read
+                        'is-unisRead':  !mail.isRead
                     }"
                     @click="open(mail)" >
-                <span class="mail__item-dot" v-if="!mail.read"></span>
+                <span class="mail__item-dot" v-if="!mail.isRead"></span>
                 <div class="mail__item-content">
                     <div class="mail__item-top">
-                        <span class="mail__item-from">{{ mail.from }}</span>
-                        <span class="mail__item-date">{{ formatDate(mail.sentAt) }}</span>
+                        <span class="mail__item-from">{{ mail.sender }}</span>
+                        <span class="mail__item-date">{{ formatDate(mail.date) }}</span>
                     </div>
                     <span class="mail__item-subject">{{ mail.subject }}</span>
                 </div>
@@ -54,9 +54,9 @@
                     <div class="mail__detail-meta">
                         <h2 class="mail__detail-subject">{{ selected.subject }}</h2>
                         <div class="mail__detail-info">
-                            <span class="mail__detail-from">{{ selected.from }}</span>
+                            <span class="mail__detail-from">{{ selected.sender }}</span>
                             <span class="mail__detail-sep">·</span>
-                            <span class="mail__detail-date">{{ formatDateFull(selected.sentAt) }}</span>
+                            <span class="mail__detail-date">{{ formatDateFull(selected.date) }}</span>
                         </div>
                     </div>
                 </div>
@@ -91,36 +91,21 @@
 import { ref, computed, onMounted } from 'vue';
 import request from '@/function/request';
 
-const mails    = ref([
-  {
-    "id": "uuid",
-    "from": "Gardien.exe",
-    "subject": "Accès au Scriptorium refusé",
-    "body": "Tu n'as pas les permissions requises.\n\nUtilise la rune ᚺ pour forger un nouveau passage.",
-    "sentAt": "2026-04-05T14:32:00Z",
-    "read": false,
-    "attachments": [
-      {
-        "id": "uuid",
-        "name": "acces_scriptorium.rune",
-        "size": "2.4 Ko",
-        "url": "/test.jpg"
-      }
-    ]
-  }
-])
+const emails = ref([]);
 const selected = ref(null)
 const loading  = ref(true)
 
-const unread = computed(() => mails.value.filter(m => !m.read).length)
+const unread = computed(() =>
+    emails.value?.filter(m => !m.isRead).length ?? 0
+)
 
 const paragraphs = computed(() =>
-  selected.value?.body?.split('\n').filter(p => p.trim() !== '') ?? []
+  selected.value?.text?.split('\n').filter(p => p.trim() !== '') ?? []
 )
 
 onMounted(async () => {
   try {
-    mails.value = await request('GET', '/api/emails' )
+    emails.value = await request('GET', '/api/emails' );
   } finally {
     loading.value = false
   }
@@ -129,12 +114,9 @@ onMounted(async () => {
 async function open(mail) {
   selected.value = mail
 
-  if (!mail.read) {
-    mail.read = true
-    // await fetch(`/api/mails/${mail.id}/read`, {
-    //   method: 'PATCH',
-    //   headers: { ...getAuthHeader() }
-    // })
+  if (!mail.isRead) {
+    mail.isRead = true
+    await request('POST', `/api/emails/${mail.id}/read`);
   }
 }
 
