@@ -20,7 +20,7 @@ async function request(method = "GET", url = "/api", body = null) {
   const data = await res.json();
 
   if (res.status >= 400 && res.status < 500) {
-    console.dir(data);
+    const { logout } = useAuth();
     logout();
   }
 

@@ -30,9 +30,16 @@
 </template>
 
 <script setup>
-defineProps({
-  unreadCount: { type: Number, default: 2 }
-})
+import request from '@/function/request';
+import { onMounted, ref } from 'vue';
+
+const unreadCount = ref(0);
+
+onMounted(async () => {
+    let data = await request('GET', '/api/user');
+    unreadCount.value = data.unreadEmails;
+});
+
 </script>
 
 <style scoped></style>

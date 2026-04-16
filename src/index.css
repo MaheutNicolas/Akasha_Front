@@ -606,6 +606,7 @@ input, textarea {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 950px;
 }
 .mail__detail-p {
   font-size: 15px;

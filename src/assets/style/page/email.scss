@@ -180,6 +180,7 @@ $list-width: 280px;
     display: flex;
     flex-direction: column;
     gap: $spacing-md;
+    max-width: 950px;
   }
 
   &__detail-p {
