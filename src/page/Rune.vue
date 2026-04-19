@@ -36,9 +36,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import RuneCreator from '@/component/RuneCreator.vue';
 import RuneList from '@/component/RuneList.vue';
+import request from '@/function/request';
 
 const path        = ref([])
 const gridRef     = ref(null)
@@ -48,114 +49,12 @@ const loading     = ref(false)
 const result      = ref(null)
 const errors      = reactive({ name: '', global: '' })
 
-const runes = [
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-   {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-   {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  {
-    "id": "1",
-    "name": "Lister",
-    "image": "/search.svg"
-  },
-  
-]
+const runes = ref([]);
+
+onMounted( async () => {
+  let response = await request('GET', '/api/runes');
+  runes.value = response.data;
+})
 
 function handleReset() {
   gridRef.value.reset()
@@ -178,24 +77,10 @@ async function invoke() {
   errors.global = ''
 
   try {
-    const res = await fetch('/api/runes', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json', ...getAuthHeader() },
-      body: JSON.stringify({
-        name:        name.value.trim(),
-        description: description.value.trim(),
-        path:        path.value
-      })
-    })
-
-    if (res.status === 409) {
-      errors.global = 'Ce motif est déjà associé à une rune'
-      return
+    const response = await request('POST', '/api/rune', path.value );
+    if (response.success) {
+      runes.value.push(response.data);
     }
-
-    if (!res.ok) throw new Error()
-
-    result.value = await res.json()
     handleReset()
     name.value        = ''
     description.value = ''
