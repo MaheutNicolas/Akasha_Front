@@ -1,9 +1,7 @@
-import { ref } from "vue";
 import useAuth from './useAuth';
 
 const defaultUri = import.meta.env.VITE_API_URL;
 const TOKEN_KEY = 'akasha_token';
-const { logout } = useAuth();
 
 async function request(method = "GET", url = "/api", body = null) {
   const token = localStorage.getItem(TOKEN_KEY);

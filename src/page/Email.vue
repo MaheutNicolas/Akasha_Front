@@ -105,7 +105,8 @@ const paragraphs = computed(() =>
 
 onMounted(async () => {
   try {
-    emails.value = await request('GET', '/api/emails' );
+    let response = await request('GET', '/api/emails' );
+    emails.value = response.data;
   } finally {
     loading.value = false
   }
@@ -116,7 +117,7 @@ async function open(mail) {
 
   if (!mail.isRead) {
     mail.isRead = true
-    await request('POST', `/api/emails/${mail.id}/read`);
+    request('POST', `/api/emails/${mail.id}/read`);
   }
 }
 

@@ -36,8 +36,8 @@ import { onMounted, ref } from 'vue';
 const unreadCount = ref(0);
 
 onMounted(async () => {
-    let data = await request('GET', '/api/user');
-    unreadCount.value = data.unreadEmails;
+    let response = await request('GET', '/api/user');
+    unreadCount.value = response.data.unreadEmails;
 });
 
 </script>
