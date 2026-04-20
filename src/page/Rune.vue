@@ -47,7 +47,7 @@ const name        = ref('')
 const description = ref('')
 const loading     = ref(false)
 const result      = ref(null)
-const errors      = reactive({ name: '', global: '' })
+const errors      = reactive({ global: '' })
 
 const runes = ref([]);
 
@@ -62,22 +62,16 @@ function handleReset() {
   errors.global = ''
 }
 
-function validate() {
-  errors.name = ''
-  if (path.value.length < 3) { errors.global = 'Tracez au moins 3 nœuds'; return false }
-  if (!name.value.trim())    { errors.name   = 'Nom requis';               return false }
-  return true
-}
-
 async function invoke() {
-  if (!validate()) return
-
   loading.value = true
   result.value  = null
   errors.global = ''
 
+  console.dir(path.value);
+  
+
   try {
-    const response = await request('POST', '/api/rune', path.value );
+    const response = await request('POST', '/api/rune', {'sequence' : path.value});
     if (response.success) {
       runes.value.push(response.data);
     }
