@@ -102,14 +102,14 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
-import useAuth from '@/function/useAuth';
-
-const { getAuthHeader } = useAuth()
+import request from '@/function/request';
+import { useRouter } from 'vue-router';
 
 const coords   = reactive({ x: null, y: null })
 const errors   = reactive({ x: '', y: '', global: '' })
 const location = ref(null)
 const loading  = ref(false)
+const router = useRouter();
 
 function clearResult() {
   location.value = null
@@ -130,23 +130,16 @@ async function handleSubmit() {
   errors.global  = ''
 
   try {
-    const res = await fetch(`/api/explore?x=${coords.x}&y=${coords.y}`, {
-      headers: { ...getAuthHeader() }
-    })
-
-    if (res.status === 404) {
-      errors.global = 'Aucun lieu trouvé à ces coordonnées'
-      return
+    const response = await request('GET', `/api/explore?x=${coords.x}&y=${coords.y}`);
+    if (response.success) {
+        router.push('/game');
+        return;
     }
 
-    if (!res.ok) throw new Error()
-
-    location.value = await res.json()
+    errors.global = response.message;
 
   } catch {
     errors.global = 'Erreur de connexion au serveur'
-  } finally {
-    loading.value = false
   }
 }
 
