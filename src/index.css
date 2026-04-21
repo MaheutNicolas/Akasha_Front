@@ -1465,6 +1465,7 @@ input, textarea {
   display: inline-flex;
   flex-direction: column;
   z-index: 1;
+  padding: 80px;
 }
 .game-map__row {
   display: flex;
