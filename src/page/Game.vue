@@ -2,13 +2,13 @@
     <div class="game">
         <div class="game__column">
             <GameMap :map="mapData" />
-            <DirectionalPad :directions="{ up: true, down: false, left: true, right: false }" @move="handleMove"/>
+            <DirectionalPad :directions="direction" @move="handleMove"/>
         </div>
         <div class="game__column">
             <Terminal :initialMessages="messages" ref="terminal"/>
         </div>
         <div class="game__column">
-            <RuneList :runes="runes"/>
+            <RuneList :runes="runes" @select="playRune"/>
         </div>
 
     </div>
@@ -22,10 +22,12 @@ import DirectionalPad from '@/component/DirectionalPad.vue';
 import { onMounted, ref } from 'vue';
 import request from '@/function/request';
 
-const terminal = ref(null);
-const messages = ref([]);
-const rune     = ref([]);
-const mapData  = ref({
+const terminal   = ref(null);
+const messages   = ref([]);
+const runes      = ref([]);
+const activeRune = ref([]);
+const direction  = ref({ up: false, down: false, left: false, right: false });
+const mapData    = ref({
   nodes: [],
   player: {},
   enemies: []
@@ -35,17 +37,45 @@ function addMessage(message) {
   terminal.value.addMessage(message);
 }
 
-function handleMove(direction) {
-  // direction = 'up' | 'down' | 'left' | 'right'
-  console.log('Déplacement :', direction)
+function playRune(rune) {
+  console.log(rune);
+  
+}
+
+async function handleMove(direction) {
+  let response = await request('POST', '/api/game/move', {'direction' : direction});
+  setGameState(response);
+}
+
+function updateDirections() {
+  const x = mapData.value.state.player.x;
+  const y = mapData.value.state.player.y;
+  const pos = `${x},${y}`;
+
+  const node = mapData.value.nodes[pos];
+
+  direction.value = {  up: false, down: false, left: false, right: false };
+
+  if (!node || !node.paths) return;
+  
+  node.paths.forEach(dir => {
+    direction.value[dir] = true;
+  });
 }
 
 onMounted( async () => {
   let response = await request('GET', '/api/session');
-  mapData.value = response.data.map;
-
-  console.dir(mapData);
-  
+  setGameState(response);
+  runes.value = response.runes
 });
+
+function setGameState(response) {
+  mapData.value = response.data.map;
+  activeRune.value = response.data.activeRune;
+  if ( response.message ) {
+    addMessage(response.message);
+  }
+  updateDirections();
+}
 </script>
 

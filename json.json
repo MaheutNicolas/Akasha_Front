@@ -1,0 +1,55 @@
+{
+    "nodes": {
+        "14,15": {
+            "paths": {
+                "right": {
+                    "passable": true
+                }
+            }
+        },
+        "15,14": {
+            "paths": {
+                "down": {
+                    "passable": true
+                }
+            }
+        },
+        "15,15": {
+            "paths": {
+                "up": {
+                    "passable": true
+                },
+                "down": {
+                    "passable": true
+                },
+                "left": {
+                    "passable": true
+                },
+                "right": {
+                    "passable": true
+                }
+            }
+        },
+        "15,16": {
+            "paths": {
+                "up": {
+                    "passable": true
+                }
+            }
+        },
+        "16,15": {
+            "paths": {
+                "left": {
+                    "passable": true
+                }
+            }
+        }
+    },
+    "state": {
+        "player": {
+            "x": 14,
+            "y": 15
+        },
+        "enemies": []
+    }
+}

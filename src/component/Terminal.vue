@@ -31,7 +31,7 @@ import { ref, nextTick, onMounted } from 'vue'
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 // Message: { source, html, time? }
-// Source: 'SYSTÈME' | 'ENVIRONNEMENT' | 'MÉMOIRE ARCANE' | 'ÉVÉNEMENT'
+// Source: 'SYSTEM' | 'ENV' | 'ARCANE' | 'EVENT'
 
 // ── Props ──────────────────────────────────────────────────────────────────────
 const props = defineProps({
@@ -54,10 +54,10 @@ function now() {
 
 function sourceClass(source) {
   const map = {
-    'SYSTÈME':        'src-sys',
-    'ENVIRONNEMENT':  'src-env',
-    'MÉMOIRE ARCANE': 'src-lore',
-    'ÉVÉNEMENT':      'src-warn',
+    'SYSTEM':        'src-sys',
+    'ENV':           'src-env',
+    'ARCANE':        'src-lore',
+    'EVENT':         'src-warn',
   }
   return map[source] ?? 'src-sys'
 }

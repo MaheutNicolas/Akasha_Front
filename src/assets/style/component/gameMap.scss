@@ -1,64 +1,81 @@
 @use '../shared' as *;
 
 .game-map {
+  width: 100%;
+  overflow: hidden;
+  background: $bg-deep;
 
-  &__viewport {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    background: $bg;
-    border: 1px solid $border;
-    border-radius: 6px;
-
-    // Vignette sur les bords
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to right,  $bg 0%, transparent 8%, transparent 92%, $bg 100%),
-        linear-gradient(to bottom, $bg 0%, transparent 8%, transparent 92%, $bg 100%);
-      pointer-events: none;
-      z-index: 2;
-    }
-  }
-
-  &__canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    will-change: transform;
-    display: inline-flex;
-    flex-direction: column;
-    z-index: 1;
-    padding: 80px;
-
-  }
-
-  &__row {
-    display: flex;
-  }
-
-  &__cell {
-    display: inline-block;
-    width: 0.65em;
-    text-align: center;
-    font-family: $font-mono;
-    font-size: 0.9rem;
-    line-height: 1.6;
+  &__svg {
+    display: block;
+    cursor: grab;
     user-select: none;
 
-    &.is-empty  { color: transparent; }
+    &:active { cursor: grabbing; }
+  }
 
-    &.is-path   { color: $border2; }
+  // ── Connexions ────────────────────────────────────────────────────────────
+  &__conn-outer,
+  &__conn-inner {
+    stroke: $border;
+    stroke-width: 1.5px;
+    stroke-linecap: square;
+  }
 
-    &.is-node   { color: $text-muted; }
-    &.is-player { color: $green; text-shadow: 0 0 8px rgba($green, 0.8); }
-    &.is-enemy  { color: $amber; }
-    &.is-boss   { color: $red; animation: blink 1.2s ease-in-out infinite; }
-    &.is-item   { color: $blue; }
-    &.is-locked { color: $red; }
-    &.is-visited{ color: $text-dim; }
+  &__conn-fill {
+    stroke: $text-dim;
+    stroke-width: 6px;
+    stroke-linecap: butt;
+  }
+
+  // ── Nœuds ────────────────────────────────────────────────────────────────
+  &__node-bg {
+    fill: $text-dim;
+  }
+
+  &__node-border-outer {
+    fill: none;
+    stroke: $border2;
+    stroke-width: 1.5px;
+  }
+
+  &__node-border-inner {
+    fill: none;
+    stroke: $border2;
+    stroke-width: 1px;
+  }
+
+  &__node-label {
+    font-family: $font-mono;
+    font-size: $font-small;
+    fill: $text-dim;
+  }
+
+  // ── Types de nœuds ───────────────────────────────────────────────────────
+  &__node--player {
+    .game-map__node-bg           { fill: rgba($blue, 0.08); }
+    .game-map__node-border-outer { stroke: $blue; stroke-width: 2px; }
+    .game-map__node-border-inner { stroke: rgba($blue, 0.4); }
+    .game-map__node-label        { fill: $light-blue; font-size: $font-text; }
+  }
+
+  &__node--enemy {
+    .game-map__node-bg           { fill: rgba($red, 0.08); }
+    .game-map__node-border-outer { stroke: $red; stroke-width: 1.5px; }
+    .game-map__node-border-inner { stroke: rgba($red, 0.4); }
+    .game-map__node-label        { fill: $light-red; font-size: $font-small; }
+  }
+
+  &__node--boss {
+    .game-map__node-bg           { fill: rgba($amber, 0.08); }
+    .game-map__node-border-outer { stroke: $amber; stroke-width: 2px; }
+    .game-map__node-border-inner { stroke: rgba($amber, 0.4); }
+    .game-map__node-label        { fill: $light-amber; font-size: $font-text; }
+  }
+
+  &__node--default {
+    &:hover {
+      .game-map__node-border-outer { stroke: $border2; }
+      .game-map__node-border-inner { stroke: rgba($border2, 0.4); }
+    }
   }
 }

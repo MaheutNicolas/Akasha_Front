@@ -1440,73 +1440,94 @@ input, textarea {
   padding: 36px;
 }
 
-.game-map__viewport {
+.game-map {
   width: 100%;
-  height: 100%;
   overflow: hidden;
-  position: relative;
-  background: #0d0f18;
-  border: 1px solid #242b3d;
-  border-radius: 6px;
+  background: #0b0e16;
 }
-.game-map__viewport::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #0d0f18 0%, transparent 8%, transparent 92%, #0d0f18 100%), linear-gradient(to bottom, #0d0f18 0%, transparent 8%, transparent 92%, #0d0f18 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-.game-map__canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  will-change: transform;
-  display: inline-flex;
-  flex-direction: column;
-  z-index: 1;
-  padding: 80px;
-}
-.game-map__row {
-  display: flex;
-}
-.game-map__cell {
-  display: inline-block;
-  width: 0.65em;
-  text-align: center;
-  font-family: "Share Tech Mono", monospace;
-  font-size: 0.9rem;
-  line-height: 1.6;
+.game-map__svg {
+  display: block;
+  cursor: grab;
   user-select: none;
 }
-.game-map__cell.is-empty {
-  color: transparent;
+.game-map__svg:active {
+  cursor: grabbing;
 }
-.game-map__cell.is-path {
-  color: #536082;
+.game-map__conn-outer, .game-map__conn-inner {
+  stroke: #242b3d;
+  stroke-width: 1.5px;
+  stroke-linecap: square;
 }
-.game-map__cell.is-node {
-  color: #959fb3;
+.game-map__conn-fill {
+  stroke: #384158;
+  stroke-width: 6px;
+  stroke-linecap: butt;
 }
-.game-map__cell.is-player {
-  color: #3aab72;
-  text-shadow: 0 0 8px rgba(58, 171, 114, 0.8);
+.game-map__node-bg {
+  fill: #384158;
 }
-.game-map__cell.is-enemy {
-  color: #c9893a;
+.game-map__node-border-outer {
+  fill: none;
+  stroke: #536082;
+  stroke-width: 1.5px;
 }
-.game-map__cell.is-boss {
-  color: #c4504a;
-  animation: blink 1.2s ease-in-out infinite;
+.game-map__node-border-inner {
+  fill: none;
+  stroke: #536082;
+  stroke-width: 1px;
 }
-.game-map__cell.is-item {
-  color: #5b9bd5;
+.game-map__node-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  fill: #384158;
 }
-.game-map__cell.is-locked {
-  color: #c4504a;
+.game-map__node--player .game-map__node-bg {
+  fill: rgba(91, 155, 213, 0.08);
 }
-.game-map__cell.is-visited {
-  color: #384158;
+.game-map__node--player .game-map__node-border-outer {
+  stroke: #5b9bd5;
+  stroke-width: 2px;
+}
+.game-map__node--player .game-map__node-border-inner {
+  stroke: rgba(91, 155, 213, 0.4);
+}
+.game-map__node--player .game-map__node-label {
+  fill: #92c5f6;
+  font-size: 18px;
+}
+.game-map__node--enemy .game-map__node-bg {
+  fill: rgba(196, 80, 74, 0.08);
+}
+.game-map__node--enemy .game-map__node-border-outer {
+  stroke: #c4504a;
+  stroke-width: 1.5px;
+}
+.game-map__node--enemy .game-map__node-border-inner {
+  stroke: rgba(196, 80, 74, 0.4);
+}
+.game-map__node--enemy .game-map__node-label {
+  fill: #ffa6a2;
+  font-size: 15px;
+}
+.game-map__node--boss .game-map__node-bg {
+  fill: rgba(201, 137, 58, 0.08);
+}
+.game-map__node--boss .game-map__node-border-outer {
+  stroke: #c9893a;
+  stroke-width: 2px;
+}
+.game-map__node--boss .game-map__node-border-inner {
+  stroke: rgba(201, 137, 58, 0.4);
+}
+.game-map__node--boss .game-map__node-label {
+  fill: #f9cb93;
+  font-size: 18px;
+}
+.game-map__node--default:hover .game-map__node-border-outer {
+  stroke: #536082;
+}
+.game-map__node--default:hover .game-map__node-border-inner {
+  stroke: rgba(83, 96, 130, 0.4);
 }
 
 .dpad {
@@ -1523,7 +1544,7 @@ input, textarea {
 .dpad__btn {
   width: 48px;
   height: 48px;
-  background: #171b29;
+  background: #384158;
   border: 1px solid #242b3d;
   border-radius: 6px;
   color: #959fb3;
