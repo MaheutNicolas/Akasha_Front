@@ -1209,7 +1209,7 @@ input, textarea {
 }
 
 .t-feed {
-  height: 400px;
+  height: 80vh;
   overflow-y: scroll;
   padding: 16px 16px 8px;
   display: flex;

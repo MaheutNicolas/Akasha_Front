@@ -33,13 +33,14 @@ const mapData    = ref({
   enemies: []
 });
 
-function addMessage(message) {
-  terminal.value.addMessage(message);
+function addMessages(messages) {
+  const list = Array.isArray(messages) ? messages : [messages];
+  list.forEach(message => terminal.value.addMessage(message));
 }
 
-function playRune(rune) {
-  console.log(rune);
-  
+async function playRune(rune) {
+  let response = await request('POST', '/api/game/rune', {'rune_id' : rune.id });
+  setGameState(response);
 }
 
 async function handleMove(direction) {
@@ -70,12 +71,12 @@ onMounted( async () => {
 });
 
 function setGameState(response) {
-  mapData.value = response.data.map;
-  activeRune.value = response.data.activeRune;
-  if ( response.message ) {
-    addMessage(response.message);
+  if ( response.data?.map ) { 
+    mapData.value = response.data.map;
+    updateDirections();
   }
-  updateDirections();
+  if ( response.data?.activeRune ) { activeRune.value = response.data.activeRune; }
+  if ( response.message ) { addMessages(response.message); }
 }
 </script>
 
