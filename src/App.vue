@@ -15,7 +15,7 @@ const route  = useRoute()
 const router = useRouter()
 const { isLoggedIn } = useAuth()
 
-const hiddenRoutes  = ['/login', '/register', '/game'];
+const hiddenRoutes  = ['/login', '/register'];
 const publicRoutes  = ['/login', '/register'];
 const hiddenBackRoutes = [ '/' ];
 
