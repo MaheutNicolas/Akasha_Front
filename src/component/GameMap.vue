@@ -106,7 +106,7 @@
 </template>
 
 <script setup>
-import { computed, ref, reactive } from 'vue'
+import { computed, ref, reactive, watch } from 'vue'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Props
@@ -248,10 +248,29 @@ const connections = computed(() => {
 // ─────────────────────────────────────────────────────────────────────────────
 // Drag / Pan
 // ─────────────────────────────────────────────────────────────────────────────
+
 const offset   = reactive({ x: 0, y: 0 })
 const dragging = ref(false)
 const origin   = reactive({ x: 0, y: 0 })
 
+function centerOnPlayer() {
+  const player = props.map?.state?.player
+  const b      = bounds.value
+  if (!player || !b) return
+  if (!props.map?.nodes || Object.keys(props.map.nodes).length === 0) return  // ← ajout
+
+  const { cx, cy } = toPixel(player.x, player.y, b.minX, b.minY)
+  offset.x = svgWidth  / 2 - cx
+  offset.y = svgHeight / 2 - cy
+}
+
+watch(
+  () => [props.map?.state?.player, bounds.value],
+  () => centerOnPlayer(),
+  { immediate: true, deep: true }
+)
+
+// Pan libre
 function startDrag(e) {
   dragging.value = true
   origin.x = e.clientX - offset.x
@@ -266,9 +285,9 @@ function stopDrag() { dragging.value = false }
 
 let lastTouch = null
 function startTouch(e) {
-  lastTouch = e.touches[0]
-  origin.x  = lastTouch.clientX - offset.x
-  origin.y  = lastTouch.clientY - offset.y
+  lastTouch    = e.touches[0]
+  origin.x = lastTouch.clientX - offset.x
+  origin.y = lastTouch.clientY - offset.y
 }
 function onTouch(e) {
   const t  = e.touches[0]

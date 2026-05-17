@@ -22,7 +22,6 @@ const hiddenBackRoutes = [ '/' ];
 const showHeader = computed(() =>
   !hiddenRoutes.some(r => route.path.startsWith(r))
 )
-console.log(route.path == '/');
 
 const showBack = computed(() =>
   !hiddenBackRoutes.some(r => route.path == r)
