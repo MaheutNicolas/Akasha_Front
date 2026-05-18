@@ -1,0 +1,27 @@
+.reconnect {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__btn {
+        color: $red;
+        border: 1px solid $red;
+        background: transparent;
+        font-family: $font-display;
+        padding: 6px 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        animation: blink 1.2s step-end infinite;
+
+        &:hover {
+            color: $light-red;
+            border-color: $light-red;
+        }
+    }
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}

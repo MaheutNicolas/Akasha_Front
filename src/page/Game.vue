@@ -2,7 +2,8 @@
     <div class="game">
         <div class="game__column">
             <GameMap :map="mapData" />
-            <DirectionalPad :directions="direction" @move="handleMove"/>
+            <Reconnexion v-if="gameStatus == 'game_over'" :mapX="mapX" :mapY="mapY"/>
+            <DirectionalPad :directions="direction" @move="handleMove" v-else/>
         </div>
         <div class="game__column">
             <Terminal :initialMessages="messages" ref="terminal"/>
@@ -19,10 +20,12 @@ import Terminal from '@/component/Terminal.vue';
 import GameMap from '@/component/GameMap.vue';
 import RuneList from '@/component/RuneList.vue';
 import DirectionalPad from '@/component/DirectionalPad.vue';
+import Reconnexion from '@/component/Reconnexion.vue'
 import { onMounted, ref } from 'vue';
 import request from '@/function/request';
 
 const terminal   = ref(null);
+const gameStatus = ref("active");
 const messages   = ref([]);
 const runes      = ref([]);
 const activeRune = ref([]);
@@ -32,6 +35,8 @@ const mapData    = ref({
   player: {},
   enemies: []
 });
+const mapX = ref(0);
+const mapY = ref(0);
 
 function addMessages(messages) {
   const list = Array.isArray(messages) ? messages : [messages];
@@ -77,6 +82,9 @@ function setGameState(response) {
   }
   if ( response.data?.activeRune ) { activeRune.value = response.data.activeRune; }
   if ( response.message ) { addMessages(response.message); }
+  if ( response.data?.status ) { gameStatus.value = response.data.status;}
+  if ( response.x ) { mapX.value = response.x; }
+  if ( response.y ) { mapY.value = response.y; }
 }
 </script>
 

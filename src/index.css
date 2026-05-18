@@ -1262,6 +1262,11 @@ input, textarea {
   color: #3aab72;
   border: 1px solid #3aab72;
 }
+.t-msg__source.src-err {
+  background: #0b0e16;
+  color: #c4504a;
+  border: 1px solid #c4504a;
+}
 .t-msg__time {
   font-size: 10px;
   color: #384158;
@@ -1594,4 +1599,33 @@ input, textarea {
 .dpad__center-icon {
   font-size: 0.7rem;
   color: #384158;
+}
+
+.reconnect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reconnect__btn {
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  background: rgba(255, 68, 68, 0.05);
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.15em;
+  padding: 6px 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  animation: blink 1.2s step-end infinite;
+}
+.reconnect__btn:hover {
+  color: #ff8888;
+  border-color: #ff8888;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
 }/*# sourceMappingURL=index.css.map */

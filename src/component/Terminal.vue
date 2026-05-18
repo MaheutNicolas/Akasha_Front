@@ -58,6 +58,7 @@ function sourceClass(source) {
     'ENV':           'src-env',
     'ARCANE':        'src-lore',
     'EVENT':         'src-warn',
+    'ERROR':         'src-err',
   }
   return map[source] ?? 'src-sys'
 }

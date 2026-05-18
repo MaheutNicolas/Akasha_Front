@@ -95,6 +95,7 @@
         &.src-lore   { background: $surface; color: $text-muted; border: 1px solid $border;  font-family: $font-display; }
         &.src-warn   { background: $bg-deep; color: $amber;      border: 1px solid $amber; }
         &.src-env    { background: $bg-deep; color: $green;      border: 1px solid $green; }
+        &.src-err    { background: $bg-deep; color: $red;        border: 1px solid $red; }
     }
 
     &__time {
