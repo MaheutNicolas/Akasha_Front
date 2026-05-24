@@ -145,6 +145,7 @@ const NODE_LABELS = {
   player:  '◉',
   enemy:   '◆',
   boss:    '✦',
+  locked:  '✕',  // ou '⊠', '◧', ce que tu préfères visuellement
 }
 
 const bounds = computed(() => {
@@ -172,8 +173,10 @@ const renderedNodes = computed(() => {
     const isPlayer = player?.x === gx && player?.y === gy
     const isBoss   = enemies.some(e => e.x === gx && e.y === gy && e.type === 'boss')
     const isEnemy  = enemies.some(e => e.x === gx && e.y === gy)
+    const isLocked = node.is_locked === true
 
-    const type  = isPlayer ? 'player' : isBoss ? 'boss' : isEnemy ? 'enemy' : 'default'
+    const type  = isPlayer ? 'player' : isBoss ? 'boss' : isEnemy ? 'enemy' : isLocked ? 'locked' : 'default'
+
     const label = NODE_LABELS[type]
 
     return { key, cx, cy, type, label }

@@ -1,5 +1,6 @@
 @use '../shared' as *;
 
+
 .game-map {
   width: 100%;
   height: 400px;
@@ -52,31 +53,40 @@
   }
 
   // ── Types de nœuds ───────────────────────────────────────────────────────
-  &__node--player {
-    .game-map__node-bg           { fill: rgba($blue, 0.08); }
-    .game-map__node-border-outer { stroke: $blue; stroke-width: 2px; }
-    .game-map__node-border-inner { stroke: rgba($blue, 0.4); }
-    .game-map__node-label        { fill: $light-blue; font-size: $font-text; }
-  }
+  &__node {
+      &--player {
+        .game-map__node-bg           { fill: rgba($blue, 0.08); }
+        .game-map__node-border-outer { stroke: $blue; stroke-width: 2px; }
+        .game-map__node-border-inner { stroke: rgba($blue, 0.4); }
+        .game-map__node-label        { fill: $light-blue; font-size: $font-text; }
+      }
 
-  &__node--enemy {
-    .game-map__node-bg           { fill: rgba($red, 0.08); }
-    .game-map__node-border-outer { stroke: $red; stroke-width: 1.5px; }
-    .game-map__node-border-inner { stroke: rgba($red, 0.4); }
-    .game-map__node-label        { fill: $light-red; font-size: $font-small; }
-  }
+      &--enemy {
+        .game-map__node-bg           { fill: rgba($red, 0.08); }
+        .game-map__node-border-outer { stroke: $red; stroke-width: 1.5px; }
+        .game-map__node-border-inner { stroke: rgba($red, 0.4); }
+        .game-map__node-label        { fill: $light-red; font-size: $font-small; }
+      }
 
-  &__node--boss {
-    .game-map__node-bg           { fill: rgba($amber, 0.08); }
-    .game-map__node-border-outer { stroke: $amber; stroke-width: 2px; }
-    .game-map__node-border-inner { stroke: rgba($amber, 0.4); }
-    .game-map__node-label        { fill: $light-amber; font-size: $font-text; }
-  }
+      &--boss {
+        .game-map__node-bg           { fill: rgba($amber, 0.08); }
+        .game-map__node-border-outer { stroke: $amber; stroke-width: 2px; }
+        .game-map__node-border-inner { stroke: rgba($amber, 0.4); }
+        .game-map__node-label        { fill: $light-amber; font-size: $font-text; }
+      }
 
-  &__node--default {
-    &:hover {
-      .game-map__node-border-outer { stroke: $border2; }
-      .game-map__node-border-inner { stroke: rgba($border2, 0.4); }
-    }
+      &--locked {
+        .game-map__node-bg           { fill: rgba($text-muted, 0.08); }
+        .game-map__node-border-outer { stroke: $text-muted; stroke-width: 2px; }
+        .game-map__node-border-inner { stroke: rgba($text-muted, 0.4); }
+        .game-map__node-label        { fill: $text-muted; font-size: $font-text; }
+      }
+
+      --default {
+        &:hover {
+          .game-map__node-border-outer { stroke: $border2; }
+          .game-map__node-border-inner { stroke: rgba($border2, 0.4); }
+        }
+    } 
   }
 }

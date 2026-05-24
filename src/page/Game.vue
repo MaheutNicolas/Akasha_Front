@@ -9,7 +9,7 @@
             <Terminal :initialMessages="messages" ref="terminal"/>
         </div>
         <div class="game__column">
-            <RuneList :runes="runes" @select="playRune"/>
+            <RuneList :runes="runes" :selected="activeRune" @select="playRune"/>
         </div>
 
     </div>
@@ -28,7 +28,7 @@ const terminal   = ref(null);
 const gameStatus = ref("active");
 const messages   = ref([]);
 const runes      = ref([]);
-const activeRune = ref([]);
+const activeRune = ref(null);
 const direction  = ref({ up: false, down: false, left: false, right: false });
 const mapData    = ref({
   nodes: [],
@@ -80,7 +80,9 @@ function setGameState(response) {
     mapData.value = response.data.map;
     updateDirections();
   }
-  if ( response.data?.activeRune ) { activeRune.value = response.data.activeRune; }
+  if ('activeRune' in (response.data ?? {})) {
+    activeRune.value = response.data.activeRune;
+  }
   if ( response.message ) { addMessages(response.message); }
   if ( response.data?.status ) { gameStatus.value = response.data.status;}
   if ( response.x ) { mapX.value = response.x; }

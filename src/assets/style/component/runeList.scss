@@ -30,10 +30,14 @@
     }
 
     &.is-active {
-      border-color: rgba($blue, 0.5);
       background: rgba($blue, 0.06);
-      border-left: 2px solid $blue;
+      border: 2px solid $blue;
       padding-left: calc($spacing-md - 1px);
+
+      .rune-list__arrow {
+          color: var(--color-accent);
+          animation: pulse 1s ease-in-out infinite;
+      }
     }
 
     &.is-readonly { cursor: default; }
@@ -77,4 +81,9 @@
     text-align: center;
     padding: $spacing-xl;
   }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
 }
