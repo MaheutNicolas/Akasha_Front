@@ -56,8 +56,8 @@ function sourceClass(source) {
   const map = {
     'SYSTEM':        'src-sys',
     'ENV':           'src-env',
-    'ARCANE':        'src-lore',
-    'EVENT':         'src-warn',
+    'ARCANE':        'src-arcane',
+    'LORE':          'src-lore',
     'ERROR':         'src-err',
   }
   return map[source] ?? 'src-sys'

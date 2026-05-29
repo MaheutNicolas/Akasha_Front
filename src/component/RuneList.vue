@@ -11,7 +11,7 @@
       }"
       @click="!readonly && emit('select', rune)"
     >
-      <img class="rune-list__preview" :src="rune.image" alt="">
+      <img class="rune-list__preview" :src="'/rune/'+rune.image" alt="">
 
       <span class="rune-list__name">{{ rune.name }}</span>
 

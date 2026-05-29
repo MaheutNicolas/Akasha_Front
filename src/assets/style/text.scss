@@ -69,8 +69,11 @@ p {
 .text-blue   { color: $blue; }
 .text-amber  { color: $amber; }
 .text-green  { color: $green; }
+.text-red    { color: $red; }
 .text-muted  { color: $text-muted; }
 .text-dim    { color: $text-dim; }
 
 .text-mono    { font-family: $font-mono; }
 .text-display { font-family: $font-display; }
+
+.glyph        {color: $red; font-size: $font-highlight;}
