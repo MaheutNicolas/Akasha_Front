@@ -83,7 +83,6 @@
     &:focus        { border-color: $border2; }
     &.is-error     { border-color: $red; }
 
-    // Masquer les flèches number input
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button { appearance: none; }
   }
@@ -146,90 +145,31 @@
     animation: spin 0.7s linear infinite;
   }
 
-  // ── Résultat ───────────────────────────────────
-  &__result {
-    width: 100%;
-    max-width: 360px;
-    background: $surface;
-    border: 1px solid $border;
-    border-radius: 6px;
-    padding: $spacing-lg;
+  // ── Historic
+  &__historic-list {
     display: flex;
     flex-direction: column;
-    gap: $spacing-md;
-    animation: fadeUp 0.25s ease;
+    gap: 6px;
+    margin-top: 10px;
   }
 
-  &__result-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: $spacing-sm;
-  }
-
-  &__result-coords {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    font-size: $font-small;
+  &__historic-btn {
+    height: 28px;
+    padding: 0 10px;
+    border: 0.5px solid $border;
+    border-radius: 20px;
+    background: $bg;
+    font-size: $text;
     color: $text-muted;
-  }
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
 
-  &__result-sep { color: $text-dim; }
+    &:hover {
+      border-color: $border2;
+      color: $text;
+      background: $surface;
+    }
 
-  &__result-tags {
-    display: flex;
-    gap: $spacing-xs;
-    flex-wrap: wrap;
-  }
-
-  &__tag {
-    font-size: $font-small;
-    text-transform: uppercase;
-    padding: 1px 7px;
-    border: 1px solid $border2;
-    border-radius: 3px;
-    color: $text-muted;
-  }
-
-  &__result-name {
-    font-family: $font-display;
-    font-weight: 700;
-    font-size: $font-highlight;
-    color: $text;
-  }
-
-  &__result-desc {
-    font-style: italic;
-    font-size: $font-small;
-    line-height: 1.75;
-    color: $text-muted;
-  }
-
-  &__result-meta {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-    padding-top: $spacing-sm;
-    border-top: 1px solid $border;
-  }
-
-  &__meta-label {
-    font-size: $font-small;
-    text-transform: uppercase;
-    color: $text-muted;
-  }
-
-  &__meta-list {
-    display: flex;
-    gap: $spacing-sm;
-    flex-wrap: wrap;
-  }
-
-  &__meta-item {
-    font-size: $font-small;
-    color: $green;
-
-    &::before { content: '◈ '; }
+    &:disabled { opacity: 0.4; cursor: not-allowed; }
   }
 }
