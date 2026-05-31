@@ -42,6 +42,12 @@ $spacing-md: 16px;
 $spacing-lg: 28px;
 $spacing-xl:  36px;
 
+//radius 
+$radius-xs: 3px;
+$radius-sm: 6px;
+$radius-md: 9px;
+$radius-lg: 12px;
+
 // Animation
 @keyframes blink {
   0%, 100% { opacity: 1;   }
@@ -87,7 +93,7 @@ $spacing-xl:  36px;
   padding: $spacing-md $spacing-lg;
   background: $surface;
   border: 1px solid $border;
-  border-radius: 6px;
+  border-radius: $radius-md;
   color: $text;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;

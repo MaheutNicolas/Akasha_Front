@@ -71,7 +71,7 @@
   &__input {
     background: $bg;
     border: 1px solid $border;
-    border-radius: 4px;
+    border-radius: $radius-xs;
     padding: 10px 14px;
     font-size: $font-text;
     color: $text;
@@ -96,7 +96,7 @@
       padding: $spacing-sm $spacing-md;
       background: rgba($red, 0.06);
       border: 1px solid rgba($red, 0.2);
-      border-radius: 4px;
+      border-radius: $radius-xs;
       text-align: center;
     }
   }
@@ -105,7 +105,7 @@
     padding: 11px;
     background: rgba($blue, 0.08);
     border: 1px solid rgba($blue, 0.3);
-    border-radius: 4px;
+    border-radius: $radius-xs;
     font-size: $font-small;
     text-transform: uppercase;
     color: $blue;
@@ -154,10 +154,9 @@
   }
 
   &__historic-btn {
-    height: 28px;
-    padding: 0 10px;
+    padding: $spacing-xs;
     border: 0.5px solid $border;
-    border-radius: 20px;
+    border-radius: $radius-lg;
     background: $bg;
     font-size: $text;
     color: $text-muted;

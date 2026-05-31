@@ -21,7 +21,7 @@
     &__input {
         background: $bg;
         border: 1px solid $border;
-        border-radius: 4px;
+        border-radius: $radius-xs;
         padding: 10px 14px;
         font-size: $font-small;
         color: $text;
@@ -43,7 +43,7 @@
             padding: 8px;
             background: rgba($red, 0.06);
             border: 1px solid rgba($red, 0.2);
-            border-radius: 4px;
+            border-radius: $radius-xs;
         }
     }
 
@@ -52,7 +52,7 @@
         padding: 11px;
         background: rgba($blue, 0.08);
         border: 1px solid rgba($blue, 0.3);
-        border-radius: 4px;
+        border-radius: $radius-xs;
         font-size: $font-text;
         text-transform: uppercase;
         color: $blue;

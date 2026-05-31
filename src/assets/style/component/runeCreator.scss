@@ -33,7 +33,7 @@ $cell-gap:  10px;
     height: $cell-size;
     background: $surface;
     border: 1px solid $border;
-    border-radius: 8px;
+    border-radius: $radius-md;
     display: flex;
     align-items: center;
     justify-content: center;

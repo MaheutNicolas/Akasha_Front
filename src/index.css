@@ -53,7 +53,7 @@
   padding: 16px 28px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 6px;
+  border-radius: 9px;
   color: #d1def2;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
@@ -331,7 +331,7 @@ input, textarea {
   max-width: 380px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 8px;
+  border-radius: 9px;
   padding: 36px;
   display: flex;
   flex-direction: column;
@@ -406,7 +406,7 @@ input, textarea {
   padding: 16px 28px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 6px;
+  border-radius: 9px;
   color: #d1def2;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
@@ -647,7 +647,7 @@ input, textarea {
   padding: 8px 16px;
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s;
 }
@@ -750,7 +750,7 @@ input, textarea {
 .explore__input {
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 10px 14px;
   font-size: 18px;
   color: #d1def2;
@@ -779,14 +779,14 @@ input, textarea {
   padding: 8px 16px;
   background: rgba(196, 80, 74, 0.06);
   border: 1px solid rgba(196, 80, 74, 0.2);
-  border-radius: 4px;
+  border-radius: 3px;
   text-align: center;
 }
 .explore__btn {
   padding: 11px;
   background: rgba(91, 155, 213, 0.08);
   border: 1px solid rgba(91, 155, 213, 0.3);
-  border-radius: 4px;
+  border-radius: 3px;
   font-size: 15px;
   text-transform: uppercase;
   color: #5b9bd5;
@@ -827,10 +827,9 @@ input, textarea {
   margin-top: 10px;
 }
 .explore__historic-btn {
-  height: 28px;
-  padding: 0 10px;
+  padding: 4px;
   border: 0.5px solid #242b3d;
-  border-radius: 20px;
+  border-radius: 12px;
   background: #0d0f18;
   font-size: #d1def2;
   color: #959fb3;
@@ -890,7 +889,7 @@ input, textarea {
   font-size: 15px;
   text-transform: uppercase;
   padding: 8px 18px;
-  border-radius: 4px;
+  border-radius: 3px;
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -953,7 +952,7 @@ input, textarea {
   padding: 8px 16px;
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .rune-create__seq-item {
   display: flex;
@@ -974,7 +973,7 @@ input, textarea {
 .rune-create__input {
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 10px 14px;
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
@@ -994,7 +993,7 @@ input, textarea {
 .rune-create__textarea {
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 10px 14px;
   font-style: italic;
   font-size: 15px;
@@ -1018,7 +1017,7 @@ input, textarea {
 }
 .rune-create__feedback {
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-family: "Share Tech Mono", monospace;
   font-size: 15px;
   animation: fadeUp 0.2s ease;
@@ -1060,7 +1059,7 @@ input, textarea {
 .form__input {
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 10px 14px;
   font-size: 15px;
   color: #d1def2;
@@ -1084,14 +1083,14 @@ input, textarea {
   padding: 8px;
   background: rgba(196, 80, 74, 0.06);
   border: 1px solid rgba(196, 80, 74, 0.2);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .form__btn {
   margin-top: 4px;
   padding: 11px;
   background: rgba(91, 155, 213, 0.08);
   border: 1px solid rgba(91, 155, 213, 0.3);
-  border-radius: 4px;
+  border-radius: 3px;
   font-size: 18px;
   text-transform: uppercase;
   color: #5b9bd5;
@@ -1120,7 +1119,7 @@ input, textarea {
   flex-direction: column;
   background: #0d0f18;
   border: 1px solid #242b3d;
-  border-radius: 10px;
+  border-radius: 9px;
   overflow: hidden;
   font-family: "Share Tech Mono", monospace;
   height: 100%;
@@ -1249,6 +1248,10 @@ input, textarea {
 .t-msg__body :deep(.good) {
   color: #3aab72;
 }
+.t-msg__img {
+  margin: 8px 0;
+  border-radius: 12px;
+}
 
 .msg-enter-active {
   animation: fadeUp 0.8s ease;
@@ -1281,7 +1284,7 @@ input, textarea {
   height: 80px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 8px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1345,7 +1348,7 @@ input, textarea {
   padding: 8px 16px;
   background: #171b29;
   border: 1px solid #242b3d;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
@@ -1611,4 +1614,56 @@ input, textarea {
   50% {
     opacity: 0.5;
   }
+}
+.image-viewer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-radius: inherit;
+}
+.image-viewer.viewer-enter-active, .image-viewer.viewer-leave-active {
+  transition: opacity 0.2s ease;
+}
+.image-viewer.viewer-enter-from, .image-viewer.viewer-leave-to {
+  opacity: 0;
+}
+.image-viewer__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 90%;
+  max-height: 90%;
+}
+.image-viewer__img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 3px;
+  border: 1px solid #242b3d;
+}
+.image-viewer__caption {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #384158;
+}
+.image-viewer__close {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: #959fb3;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.image-viewer__close:hover {
+  color: #384158;
 }/*# sourceMappingURL=index.css.map */

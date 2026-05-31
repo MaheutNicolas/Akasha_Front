@@ -15,12 +15,15 @@
         >
           <div class="t-msg__header" v-if="msg.showHeader">
             <span class="t-msg__source" :class="sourceClass(msg.source)">
-              {{ msg.source }}
+              {{ sourceName(msg.source) }}
             </span>
             <span class="t-msg__time" v-if="msg.time">{{ msg.time }}</span>
           </div>
-          <div class="t-msg__body" v-html="'> ' + msg.html" />
+          <div class="t-msg__body" v-html="'> ' + msg.html" v-if="msg.html" />
+          <img class="t-msg__img" :src="msg.img" alt="" v-if="msg.img" @click="openImage(msg)" >
         </div>
+
+        <ImageViewer :image="activeImage" @close="activeImage = null" />
       </TransitionGroup>
     </div>
   </div>
@@ -28,6 +31,7 @@
 
 <script setup>
 import { ref, nextTick, onMounted } from 'vue'
+import ImageViewer from './ImageViewer.vue';
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 // Message: { source, html, time? }
@@ -46,8 +50,16 @@ const emit = defineEmits(['command'])
 // ── State ──────────────────────────────────────────────────────────────────────
 const feedRef  = ref(null)
 const messages = ref([])
+const activeImage = ref(null);
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
+function openImage(message) {
+  activeImage.value = {
+    src: message.img,
+    caption: message.caption ?? null,
+  };
+}
+
 function now() {
   return new Date().toTimeString().slice(0, 8)
 }
@@ -59,6 +71,17 @@ function sourceClass(source) {
     'ARCANE':        'src-arcane',
     'LORE':          'src-lore',
     'ERROR':         'src-err',
+  }
+  return map[source] ?? 'src-sys'
+}
+
+function sourceName(source) {
+  const map = {
+    'SYSTEM':        'SYSTEME',
+    'ENV':           'ENVIRONNEMENT',
+    'ARCANE':        'ARCANE',
+    'LORE':          'DONNEE',
+    'ERROR':         'ERREUR',
   }
   return map[source] ?? 'src-sys'
 }

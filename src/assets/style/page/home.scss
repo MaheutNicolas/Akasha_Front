@@ -45,7 +45,7 @@
     padding: $spacing-md $spacing-lg;
     background: $surface;
     border: 1px solid $border;
-    border-radius: 6px;
+    border-radius: $radius-md;
     color: $text;
     text-decoration: none;
     transition: border-color 0.15s, background 0.15s, color 0.15s;
@@ -82,7 +82,7 @@
     background: rgba($blue, 0.12);
     border: 1px solid rgba($blue, 0.3);
     color: $blue;
-    border-radius: 3px;
+    border-radius: $radius-xs;
     padding: 1px 7px;
     flex-shrink: 0;
   }

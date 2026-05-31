@@ -7,7 +7,7 @@
     flex-direction: column;
     background: $bg;
     border: 1px solid $border;
-    border-radius: 10px;
+    border-radius: $radius-md;
     overflow: hidden;
     font-family: $font-mono;
     height: 100%;
@@ -113,6 +113,11 @@
         :deep(.lore)   { color: $text-muted; font-style: italic; font-family: $font-display; }
         :deep(.warn)   { color: $amber; }
         :deep(.good)   { color: $green; }
+    }
+
+    &__img {
+        margin: $spacing-sm 0;
+        border-radius: $radius-lg;
     }
 }
 
