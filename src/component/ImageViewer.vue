@@ -1,8 +1,8 @@
 <template>
   <Transition name="viewer">
-    <div v-if="image" class="image-viewer" @click.self="$emit('close')">
+    <div v-if="image" class="image-viewer" @click="$emit('close')">
       <div class="image-viewer__box">
-        <button class="image-viewer__close" @click="$emit('close')" aria-label="Fermer">
+        <button class="image-viewer__close" aria-label="Fermer">
           <i class="ti ti-x" />
         </button>
         <img :src="image.src" :alt="image.caption ?? ''" class="image-viewer__img" />

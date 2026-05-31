@@ -60,7 +60,7 @@ function updateDirections() {
 
   const node = mapData.value.nodes[pos];
 
-  direction.value = {  up: false, down: false, left: false, right: false };
+  setDirectionTo(false);
 
   if (!node || !node.paths) return;
   
@@ -82,11 +82,18 @@ function setGameState(response) {
   }
   if ('activeRune' in (response.data ?? {})) {
     activeRune.value = response.data.activeRune;
+    activeRune.value == null ?
+      updateDirections() :
+      setDirectionTo(true);
   }
   if ( response.message ) { addMessages(response.message); }
   if ( response.data?.status ) { gameStatus.value = response.data.status;}
   if ( response.x ) { mapX.value = response.x; }
   if ( response.y ) { mapY.value = response.y; }
+}
+
+function setDirectionTo(value = false) {
+  direction.value = {  up: value, down: value, left: value, right: value };
 }
 </script>
 
