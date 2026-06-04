@@ -82,6 +82,13 @@
         .game-map__node-label        { fill: $text-muted; font-size: $font-text; }
       }
 
+      &--trapped {
+        .game-map__node-bg           { fill: rgba($light-red, 0.08); }
+        .game-map__node-border-outer { stroke: $light-red; stroke-width: 2px; }
+        .game-map__node-border-inner { stroke: rgba($light-red, 0.4); }
+        .game-map__node-label        { fill: $light-red; font-size: $font-text; }
+      }
+
       --default {
         &:hover {
           .game-map__node-border-outer { stroke: $border2; }

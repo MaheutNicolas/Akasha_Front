@@ -1513,6 +1513,20 @@ input, textarea {
   fill: #959fb3;
   font-size: 18px;
 }
+.game-map__node--trapped .game-map__node-bg {
+  fill: rgba(255, 166, 162, 0.08);
+}
+.game-map__node--trapped .game-map__node-border-outer {
+  stroke: #ffa6a2;
+  stroke-width: 2px;
+}
+.game-map__node--trapped .game-map__node-border-inner {
+  stroke: rgba(255, 166, 162, 0.4);
+}
+.game-map__node--trapped .game-map__node-label {
+  fill: #ffa6a2;
+  font-size: 18px;
+}
 .game-map__node --default:hover .game-map__node-border-outer {
   stroke: #536082;
 }

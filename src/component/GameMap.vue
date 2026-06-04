@@ -145,7 +145,8 @@ const NODE_LABELS = {
   player:  '◉',
   enemy:   '◆',
   boss:    '✦',
-  locked:  '✕',  // ou '⊠', '◧', ce que tu préfères visuellement
+  locked:  '✕',
+  trapped: '🕱',
 }
 
 const bounds = computed(() => {
@@ -170,13 +171,15 @@ const renderedNodes = computed(() => {
     const [gx, gy] = key.split(',').map(Number)
     const { cx, cy } = toPixel(gx, gy, b.minX, b.minY)
 
-    const isPlayer = player?.x === gx && player?.y === gy
-    const isBoss   = enemies.some(e => e.x === gx && e.y === gy && e.type === 'boss')
-    const isEnemy  = enemies.some(e => e.x === gx && e.y === gy)
-    const isLocked = node.is_locked === true
+    const TILE_TYPES = [
+      { type: 'player',  match: () => player?.x === gx && player?.y === gy },
+      { type: 'boss',    match: () => enemies.some(e => e.x === gx && e.y === gy && e.type === 'boss') },
+      { type: 'enemy',   match: () => enemies.some(e => e.x === gx && e.y === gy) },
+      { type: 'locked',  match: () => node.is_locked  === true },
+      { type: 'trapped', match: () => node.is_trapped === true },
+    ]
 
-    const type  = isPlayer ? 'player' : isBoss ? 'boss' : isEnemy ? 'enemy' : isLocked ? 'locked' : 'default'
-
+    const type = TILE_TYPES.find(t => t.match())?.type ?? 'default'
     const label = NODE_LABELS[type]
 
     return { key, cx, cy, type, label }
