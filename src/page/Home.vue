@@ -25,6 +25,12 @@
             <span class="home__item-badge" v-if="unreadCount > 0">{{ unreadCount }}</span>
             <span class="home__item-arrow">→</span>
         </RouterLink>
+
+        <RouterLink to="/parametre" class="home__item">
+            <span class="home__item-icon">⚙</span>
+            <span class="home__item-label">Paramètre</span>
+            <span class="home__item-arrow">→</span>
+        </RouterLink>
         </nav>
     </div>
 </template>

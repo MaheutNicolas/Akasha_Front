@@ -22,6 +22,11 @@
     cursor: pointer;
     transition: border-color 0.15s, background 0.15s;
 
+    &--modal {
+      justify-content: center;
+      border: 1px solid $blue;
+    }
+
     &:hover:not(.is-readonly) {
       border-color: rgba($blue, 0.4);
       background: rgba($blue, 0.04);

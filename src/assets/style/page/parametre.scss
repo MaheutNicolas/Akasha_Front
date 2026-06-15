@@ -1,0 +1,180 @@
+@use '../shared' as *;
+
+.parametres {
+  &_container {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: $spacing-xl $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    position: relative;
+  }
+
+  &__header { display: flex; flex-direction: column; gap: $spacing-xs; }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-highlight;
+    color: $text;
+    letter-spacing: 0.06em;
+  }
+
+  &__sub {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text-muted;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__section-title {
+    font-family: $font-display;
+    font-size: $font-text;
+    color: $text;
+    letter-spacing: 0.04em;
+  }
+
+  &__section-desc {
+    font-size: $font-small;
+    color: $text-muted;
+    line-height: 1.6;
+  }
+
+  &__conflict {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $amber;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-sm;
+  }
+
+  &__toast {
+    position: fixed;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $surface;
+    border: 1px solid $green;
+    border-radius: $radius-sm;
+    padding: $spacing-sm $spacing-lg;
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $light-green;
+    pointer-events: none;
+  }
+}
+
+.keybind-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.keybind-row {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex: 1;
+    font-size: $font-small;
+    color: $text;
+  }
+
+  &__arrow {
+    font-family: $font-mono;
+    font-size: $font-text;
+    color: $blue;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    min-width: 120px;
+    padding: $spacing-xs $spacing-sm;
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: $radius-xs;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s;
+    outline: none;
+
+    &:hover:not(.is-listening) { border-color: rgba($blue, 0.4); }
+
+    &.is-listening {
+      border-color: $blue;
+      background: rgba($blue, 0.06);
+    }
+
+    &.is-conflict { border-color: $amber; }
+  }
+
+  &__hint {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: $blue;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  &__kbd {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  &__reset {
+    background: none;
+    border: none;
+    color: $text-dim;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 4px;
+    transition: color 0.15s;
+    flex-shrink: 0;
+    &:hover { color: $blue; }
+  }
+}
+
+.btn {
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-sm;
+  border: 1px solid $border;
+  background: $bg;
+  color: $text-muted;
+  font-size: $font-small;
+  font-family: $font-mono;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  &:hover { border-color: rgba($blue, 0.4); color: $text; }
+
+  &--primary {
+    background: rgba($blue, 0.1);
+    border-color: rgba($blue, 0.5);
+    color: $blue;
+    &:hover { background: rgba($blue, 0.18); border-color: $blue; }
+  }
+}
+
+.toast-enter-active, .toast-leave-active { transition: opacity 0.3s, transform 0.3s; }
+.toast-enter-from, .toast-leave-to       { opacity: 0; transform: translateX(-50%) translateY(8px); }

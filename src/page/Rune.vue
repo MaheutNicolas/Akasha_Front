@@ -29,10 +29,18 @@
     </div>
 
     <div class="rune-create__right">
-      <RuneList :runes="runes" :readonly="true"/>
+      <RuneList 
+        :runes="runes" 
+        :readonly="true" 
+        :showModalButton="true" 
+        @update:modelValue="$event => (showModal = $event)"/>
     </div>
 
   </div>
+  <RuneOrderModal 
+    :modelValue="showModal" 
+    :runes="runes" 
+    @update:modelValue="$event => (showModal = $event)" />
 </template>
 
 <script setup>
@@ -40,6 +48,7 @@ import { ref, reactive, onMounted } from 'vue';
 import RuneCreator from '@/component/RuneCreator.vue';
 import RuneList from '@/component/RuneList.vue';
 import request from '@/function/request';
+import RuneOrderModal from '@/component/RuneOrderModal.vue';
 
 const path        = ref([])
 const gridRef     = ref(null)
@@ -48,6 +57,7 @@ const description = ref('')
 const loading     = ref(false)
 const result      = ref(null)
 const errors      = reactive({ global: '' })
+const showModal   = ref(false);
 
 const runes = ref([]);
 

@@ -21,8 +21,9 @@ import GameMap from '@/component/GameMap.vue';
 import RuneList from '@/component/RuneList.vue';
 import DirectionalPad from '@/component/DirectionalPad.vue';
 import Reconnexion from '@/component/Reconnexion.vue'
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, computed } from 'vue';
 import request from '@/function/request';
+import { loadKeybinds } from '@/function/keyBinds.js';
 
 const terminal   = ref(null);
 const gameStatus = ref("active");
@@ -30,6 +31,37 @@ const messages   = ref([]);
 const runes      = ref([]);
 const activeRune = ref(null);
 const direction  = ref({ up: false, down: false, left: false, right: false });
+const keybinds   = ref({});
+
+const sortedRunes = computed(() =>
+  [...runes.value].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+)
+
+function getKeyLabel(e) {
+  return e.key
+}
+
+function onKeyDown(e) {
+  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
+
+  const label = getKeyLabel(e)
+  const binds = keybinds.value
+
+  if (gameStatus.value !== 'game_over') {
+    if (label === binds.up    && direction.value.up)    { e.preventDefault(); handleMove('up');    return }
+    if (label === binds.down  && direction.value.down)  { e.preventDefault(); handleMove('down');  return }
+    if (label === binds.left  && direction.value.left)  { e.preventDefault(); handleMove('left');  return }
+    if (label === binds.right && direction.value.right) { e.preventDefault(); handleMove('right'); return }
+  }
+
+  for (let i = 1; i <= 9; i++) {
+    if (label === binds[`r${i}`]) {
+      const rune = sortedRunes.value[i - 1]
+      if (rune) { e.preventDefault(); playRune(rune) }
+      return
+    }
+  }
+}
 const mapData    = ref({
   nodes: [],
   player: {},
@@ -70,9 +102,15 @@ function updateDirections() {
 }
 
 onMounted( async () => {
+  keybinds.value = loadKeybinds()
+  window.addEventListener('keydown', onKeyDown)
   let response = await request('GET', '/api/session');
   setGameState(response);
   runes.value = response.runes
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeyDown)
 });
 
 function setGameState(response) {

@@ -6,6 +6,7 @@ import Rune from './page/Rune.vue';
 import Game from './page/Game.vue';
 import Email from './page/Email.vue';
 import Explore from './page/Explore.vue';
+import Parametre from './page/Parametre.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -14,7 +15,8 @@ const routes = [
   { path: '/rune', component: Rune },
   { path: '/game', component: Game },
   { path: '/mail', component: Email },
-  { path: '/explore', component: Explore }
+  { path: '/explore', component: Explore },
+  { path: '/parametre', component: Parametre }
 ]
 
 export const router = createRouter({
