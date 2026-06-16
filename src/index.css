@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap");
+.desktop {
+  display: none;
+}
+@media (max-width: 768px) {
+  .desktop {
+    display: flex;
+  }
+}
+
+.desktop {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+
 @keyframes blink {
   0%, 100% {
     opacity: 1;
@@ -264,6 +282,7 @@ input, textarea {
   height: 44px;
   padding: 0 28px;
   gap: 28px;
+  position: relative;
 }
 .header__logo {
   font-family: "Cinzel", serif;
@@ -276,19 +295,53 @@ input, textarea {
 .header__logo:hover {
   color: #92c5f6;
 }
-.header__links {
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+.header__burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #959fb3;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.header__burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.header__burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.header__collapse {
+  display: flex;
+  justify-content: end;
+  gap: 28px;
+  width: 100%;
+}
+.header__main {
   display: flex;
   height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 0;
+  width: 100%;
+  justify-content: space-between;
 }
-.header__links li {
-  height: 100%;
-  display: flex;
-}
-.header__links a {
+.header__main a {
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -300,15 +353,14 @@ input, textarea {
   border-bottom: 1px solid transparent;
   transition: color 0.15s, border-color 0.15s;
 }
-.header__links a:hover {
+.header__main a:hover {
   color: #d1def2;
 }
-.header__links a.is-active {
+.header__main a.is-active {
   color: #5b9bd5;
   border-bottom-color: #5b9bd5;
 }
 .header__right {
-  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -317,6 +369,45 @@ input, textarea {
   font-family: "Share Tech Mono", monospace;
   font-size: 24px;
   color: #5b9bd5;
+}
+@media (max-width: 768px) {
+  .header__nav {
+    padding: 0 16px;
+  }
+  .header__burger {
+    display: flex;
+  }
+  .header__collapse {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #171b29;
+    border-bottom: 1px solid #242b3d;
+    padding: 16px;
+    gap: 16px;
+  }
+  .header__collapse.is-open {
+    display: flex;
+  }
+  .header__links {
+    flex-direction: column;
+    width: 100%;
+  }
+  .header__links li {
+    height: auto;
+    width: 100%;
+  }
+  .header__links a {
+    padding: 16px 0;
+  }
+  .header__right {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .login-register {

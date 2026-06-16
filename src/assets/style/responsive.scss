@@ -22,3 +22,20 @@ $screen-lg-min: 1200px;
        @content;
    }
 }
+
+
+.desktop {
+    display:  none;
+
+    @include md {
+        display: flex;
+    }
+}
+
+.desktop {
+    display:  flex;
+
+    @include md {
+        display: none;
+    }
+}
