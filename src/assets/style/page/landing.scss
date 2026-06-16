@@ -1,0 +1,176 @@
+@use '../shared' as *;
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacing-sm;
+    padding-top: $spacing-xl;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  &__prompt {
+    font-family: $font-mono;
+    font-size: $font-small;
+    color: $text-dim;
+    margin: 0;
+  }
+
+  &__cursor {
+    display: inline-block;
+    color: $blue;
+    animation: blink 1s step-end infinite;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 900;
+    font-size: $font-title;
+    letter-spacing: 0.08em;
+    color: $blue;
+    margin: 0;
+  }
+
+  &__tagline {
+    font-family: $font-mono;
+    font-size: $font-small;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-muted;
+    margin: 0 0 $spacing-sm;
+  }
+
+  &__intro {
+    font-family: $font-mono;
+    font-size: $font-text;
+    text-align: start;
+    line-height: 1.6;
+    color: $text;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    padding: $spacing-md $spacing-lg;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    color: $text;
+    text-decoration: none;
+    font-family: $font-mono;
+    font-size: $font-small;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+    &:hover {
+      border-color: rgba($blue, 0.4);
+      background: rgba($blue, 0.04);
+      color: $blue;
+
+      .landing__cta-arrow {
+        opacity: 1;
+        transform: translateX(2px);
+      }
+    }
+  }
+
+  &__cta-arrow {
+    opacity: 0.6;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  &__tips {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-lg;
+    animation: fadeUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  &__section-title {
+    font-family: $font-display;
+    font-size: $font-highlight;
+    color: $text;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    width: 100%;
+  }
+
+  &__feature {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-lg;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+  }
+
+  &__feature-icon {
+    font-size: 1.25rem;
+    color: $blue;
+  }
+
+  &__feature-title {
+    font-family: $font-mono;
+    font-size: $font-small;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: $text;
+    margin: 0;
+  }
+
+  &__feature-text {
+    font-family: $font-mono;
+    font-size: $font-small;
+    line-height: 1.6;
+    color: $text-muted;
+    margin: 0;
+  }
+
+  &__disclaimer {
+    width: 100%;
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    text-align: center;
+    gap: $spacing-sm;
+    padding: $spacing-lg;
+    border-top: 1px solid $border;
+    color: $text;
+  }
+}
+
+@include md {
+  .landing {
+    &__title {
+      font-size: $font-highlight;
+    }
+
+    &__features {
+      flex-direction: column;
+    }
+  }
+}

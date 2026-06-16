@@ -143,7 +143,7 @@ async function handleSubmit() {
       throw new Error(data.message ?? 'Erreur lors de la création du compte');
     }
     setLogin(data);
-    router.push('/');
+    router.push('/home');
   } catch (e) {
     errors.global = e.message;
   } finally {

@@ -41,25 +41,25 @@
   }
 }
 .resizable-title, .login-register__title {
-  font-size: 45px;
+  font-size: clamp(30px, 3.5vw, 45px);
 }
 @media (max-width: 768px) {
   .resizable-title, .login-register__title {
-    font-size: 24px;
+    font-size: clamp(17px, 2.2vw, 24px);
   }
 }
 
 .resizable-highlight, .login-register__sub {
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
 }
 @media (max-width: 768px) {
   .resizable-highlight, .login-register__sub {
-    font-size: 18px;
+    font-size: clamp(16px, 1.8vw, 18px);
   }
 }
 
 .resizable-text {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 @media (max-width: 768px) {
   .resizable-text {
@@ -110,24 +110,24 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: clamp(30px, 3.5vw, 45px);
 }
 
 h2 {
-  font-size: 45px;
+  font-size: clamp(30px, 3.5vw, 45px);
 }
 
 h3 {
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
 }
 
 h4 {
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   letter-spacing: 0.14em;
 }
 
 p {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.75;
   color: #d1def2;
 }
@@ -135,19 +135,19 @@ p {
 .text-lore {
   font-family: "Cinzel", serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.75;
   color: #959fb3;
 }
 
 .text-label, .t-msg__source {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   text-transform: uppercase;
   color: #959fb3;
 }
 
 .text-terminal, .t-msg__body {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.8;
   color: #959fb3;
 }
@@ -200,7 +200,7 @@ p {
 
 .glyph {
   color: #c4504a;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
 }
 
 *, *::before, *::after {
@@ -287,7 +287,7 @@ input, textarea {
 .header__logo {
   font-family: "Cinzel", serif;
   font-weight: 900;
-  font-size: 45px;
+  font-size: clamp(30px, 3.5vw, 45px);
   color: #5b9bd5;
   text-decoration: none;
   flex-shrink: 0;
@@ -346,7 +346,7 @@ input, textarea {
   align-items: center;
   padding: 0 16px;
   font-family: "Share Tech Mono", monospace;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   text-transform: uppercase;
   color: #959fb3;
   text-decoration: none;
@@ -367,7 +367,7 @@ input, textarea {
 }
 .header__player {
   font-family: "Share Tech Mono", monospace;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #5b9bd5;
 }
 @media (max-width: 768px) {
@@ -474,7 +474,7 @@ input, textarea {
 .home__title {
   font-family: "Cinzel", serif;
   font-weight: 900;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #5b9bd5;
 }
 .home__sub {
@@ -676,7 +676,7 @@ input, textarea {
 .mail__detail-subject {
   font-family: "Cinzel", serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #d1def2;
   margin-bottom: 8px;
 }
@@ -804,7 +804,7 @@ input, textarea {
 .explore__title {
   font-family: "Cinzel", serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #d1def2;
 }
 .explore__sub {
@@ -843,7 +843,7 @@ input, textarea {
   border: 1px solid #242b3d;
   border-radius: 3px;
   padding: 10px 14px;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   color: #d1def2;
   text-align: center;
   transition: border-color 0.15s;
@@ -963,7 +963,7 @@ input, textarea {
 .rune-create__title {
   font-family: "Cinzel", serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #d1def2;
 }
 .rune-create__sub {
@@ -1123,6 +1123,29 @@ input, textarea {
   border: 1px solid rgba(196, 80, 74, 0.2);
   color: #c4504a;
 }
+@media (max-width: 768px) {
+  .rune-create {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .rune-create__left {
+    border-right: none;
+    border-bottom: 1px solid #242b3d;
+    padding: 28px 16px 16px;
+    gap: 28px;
+  }
+  .rune-create__actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .rune-create__btn {
+    padding: 8px 14px;
+  }
+  .rune-create__right {
+    padding: 16px;
+    gap: 16px;
+  }
+}
 
 .game {
   display: grid;
@@ -1148,7 +1171,7 @@ input, textarea {
 }
 .parametres__title {
   font-family: "Cinzel", serif;
-  font-size: 24px;
+  font-size: clamp(17px, 2.2vw, 24px);
   color: #d1def2;
   letter-spacing: 0.06em;
 }
@@ -1164,7 +1187,7 @@ input, textarea {
 }
 .parametres__section-title {
   font-family: "Cinzel", serif;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   color: #d1def2;
   letter-spacing: 0.04em;
 }
@@ -1223,7 +1246,7 @@ input, textarea {
 }
 .keybind-row__arrow {
   font-family: "Share Tech Mono", monospace;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   color: #5b9bd5;
   width: 20px;
   text-align: center;
@@ -1312,6 +1335,159 @@ input, textarea {
   transform: translateX(-50%) translateY(8px);
 }
 
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px;
+}
+.landing__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding-top: 36px;
+  animation: fadeUp 0.6s ease both;
+}
+.landing__prompt {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: #384158;
+  margin: 0;
+}
+.landing__cursor {
+  display: inline-block;
+  color: #5b9bd5;
+  animation: blink 1s step-end infinite;
+}
+.landing__title {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(30px, 3.5vw, 45px);
+  letter-spacing: 0.08em;
+  color: #5b9bd5;
+  margin: 0;
+}
+.landing__tagline {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #959fb3;
+  margin: 0 0 8px;
+}
+.landing__intro {
+  font-family: "Share Tech Mono", monospace;
+  font-size: clamp(16px, 1.8vw, 18px);
+  text-align: start;
+  line-height: 1.6;
+  color: #d1def2;
+  max-width: 600px;
+  margin: 0;
+}
+.landing__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 16px 28px;
+  background: #171b29;
+  border: 1px solid #242b3d;
+  border-radius: 9px;
+  color: #d1def2;
+  text-decoration: none;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.landing__cta:hover {
+  border-color: rgba(91, 155, 213, 0.4);
+  background: rgba(91, 155, 213, 0.04);
+  color: #5b9bd5;
+}
+.landing__cta:hover .landing__cta-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+.landing__cta-arrow {
+  opacity: 0.6;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.landing__tips {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+.landing__section-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(17px, 2.2vw, 24px);
+  color: #d1def2;
+  text-align: center;
+  margin: 0;
+}
+.landing__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+.landing__feature {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  background: #171b29;
+  border: 1px solid #242b3d;
+  border-radius: 9px;
+}
+.landing__feature-icon {
+  font-size: 1.25rem;
+  color: #5b9bd5;
+}
+.landing__feature-title {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #d1def2;
+  margin: 0;
+}
+.landing__feature-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #959fb3;
+  margin: 0;
+}
+.landing__disclaimer {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 16px;
+  text-align: center;
+  gap: 8px;
+  padding: 28px;
+  border-top: 1px solid #242b3d;
+  color: #d1def2;
+}
+
+@media (max-width: 768px) {
+  .landing__title {
+    font-size: clamp(17px, 2.2vw, 24px);
+  }
+  .landing__features {
+    flex-direction: column;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -1323,7 +1499,7 @@ input, textarea {
   gap: 6px;
 }
 .form__label {
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   text-transform: uppercase;
   color: #959fb3;
 }
@@ -1362,7 +1538,7 @@ input, textarea {
   background: rgba(91, 155, 213, 0.08);
   border: 1px solid rgba(91, 155, 213, 0.3);
   border-radius: 3px;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   text-transform: uppercase;
   color: #5b9bd5;
   transition: all 0.15s;
@@ -1531,6 +1707,7 @@ input, textarea {
 .rune-grid-wrap {
   position: relative;
   display: inline-block;
+  max-width: 100%;
 }
 
 .rune-grid__svg {
@@ -1599,6 +1776,28 @@ input, textarea {
   font-size: 15px;
   color: #5b9bd5;
   line-height: 1;
+}
+@media (max-width: 576px) {
+  .rune-grid__grid {
+    grid-template-columns: repeat(4, 64px);
+    grid-template-rows: repeat(4, 64px);
+    gap: 8px;
+  }
+  .rune-grid__cell {
+    width: 64px;
+    height: 64px;
+  }
+}
+@media (max-width: 576px) {
+  .rune-grid__grid {
+    grid-template-columns: repeat(4, 56px);
+    grid-template-rows: repeat(4, 56px);
+    gap: 6px;
+  }
+  .rune-grid__cell {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .rune-list {
@@ -1744,7 +1943,7 @@ input, textarea {
 }
 .game-map__node--player .game-map__node-label {
   fill: #92c5f6;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 .game-map__node--enemy .game-map__node-bg {
   fill: rgba(196, 80, 74, 0.08);
@@ -1772,7 +1971,7 @@ input, textarea {
 }
 .game-map__node--boss .game-map__node-label {
   fill: #f9cb93;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 .game-map__node--locked .game-map__node-bg {
   fill: rgba(149, 159, 179, 0.08);
@@ -1786,7 +1985,7 @@ input, textarea {
 }
 .game-map__node--locked .game-map__node-label {
   fill: #959fb3;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 .game-map__node--trapped .game-map__node-bg {
   fill: rgba(255, 166, 162, 0.08);
@@ -1800,7 +1999,7 @@ input, textarea {
 }
 .game-map__node--trapped .game-map__node-label {
   fill: #ffa6a2;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
 }
 .game-map__node --default:hover .game-map__node-border-outer {
   stroke: #536082;
@@ -1889,7 +2088,7 @@ input, textarea {
   font-family: "Cinzel", serif;
   padding: 6px 16px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: clamp(16px, 1.8vw, 18px);
   font-weight: bold;
   cursor: pointer;
   animation: blink 1.2s step-end infinite;

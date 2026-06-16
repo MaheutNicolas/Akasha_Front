@@ -89,7 +89,7 @@ async function handleSubmit() {
 
   try {
     await login(form.email, form.password)
-    router.push('/')
+    router.push('/home')
   } catch (e) {
     errors.global = e.message
   } finally {
@@ -100,7 +100,7 @@ async function handleSubmit() {
 async function test() {
   let response = await request('GET', '/api/auth/check');
   if ( response.success ) {
-    router.push('/');
+    router.push('/home');
   }
 }
 

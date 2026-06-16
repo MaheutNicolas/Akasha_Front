@@ -26,10 +26,10 @@ $font-display: 'Cinzel', serif;
 $font-mono:    'Share Tech Mono', monospace;
 
 // Font Size
-$font-title: 45px;
-$font-highlight: 24px;
-$font-text: 18px;
-$font-small: 15px;
+$font-title:     clamp(30px, 3.5vw, 45px);
+$font-highlight: clamp(17px, 2.2vw, 24px);
+$font-text:      clamp(16px, 1.8vw, 18px);;
+$font-small:     15px;
 
 // Layout
 $header-height: 44px;

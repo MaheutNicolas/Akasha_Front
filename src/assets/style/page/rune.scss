@@ -192,4 +192,31 @@
       color: $red;
     }
   }
+
+  // ── Mobile : colonne unique ─────────────────────
+  @include md {
+    grid-template-columns: 1fr;
+    min-height: auto;
+
+    &__left {
+      border-right: none;
+      border-bottom: 1px solid $border;
+      padding: $spacing-lg $spacing-md $spacing-md;
+      gap: $spacing-lg;
+    }
+
+    &__actions {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__btn {
+      padding: 8px 14px;
+    }
+
+    &__right {
+      padding: $spacing-md;
+      gap: $spacing-md;
+    }
+  }
 }

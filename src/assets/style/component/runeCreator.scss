@@ -1,13 +1,11 @@
 @use '../shared' as *;
-
 $cell-size: 80px;
 $cell-gap:  10px;
-
 .rune-grid-wrap {
   position: relative;
   display: inline-block;
+  max-width: 100%;
 }
-
 .rune-grid {
   &__svg {
     position: absolute;
@@ -18,7 +16,6 @@ $cell-gap:  10px;
     overflow: visible;
     z-index: 2;
   }
-
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, $cell-size);
@@ -27,7 +24,6 @@ $cell-gap:  10px;
     position: relative;
     z-index: 1;
   }
-
   &__cell {
     width: $cell-size;
     height: $cell-size;
@@ -41,41 +37,34 @@ $cell-gap:  10px;
     position: relative;
     transition: border-color 0.15s, background 0.15s;
     user-select: none;
-
     &:hover {
       border-color: $border2;
     }
-
     &.is-selected {
       border-color: rgba($blue, 0.5);
       background: rgba($blue, 0.05);
     }
-
     &.is-first {
       border-color: rgba($green, 0.6);
     }
   }
-
   &__dot {
     width: 4px;
     height: 4px;
     border-radius: 50%;
     background: $border;
     transition: all 0.15s;
-
     .is-selected & {
       background: $blue;
       width: 8px;
       height: 8px;
       box-shadow: 0 0 8px rgba($blue, 0.6);
     }
-
     .is-first & {
       background: $blue;
       box-shadow: 0 0 10px rgba($blue, 0.7);
     }
   }
-
   &__order {
     position: absolute;
     top: 5px;
@@ -84,5 +73,36 @@ $cell-gap:  10px;
     font-size: $font-small;
     color: $blue;
     line-height: 1;
+  }
+
+  // ── Mobile : grille réduite ──────────────────────
+  @include sm {
+    $cell-size-m: 64px;
+    $cell-gap-m:  8px;
+
+    &__grid {
+      grid-template-columns: repeat(4, $cell-size-m);
+      grid-template-rows:    repeat(4, $cell-size-m);
+      gap: $cell-gap-m;
+    }
+    &__cell {
+      width: $cell-size-m;
+      height: $cell-size-m;
+    }
+  }
+
+  @include sm {
+    $cell-size-xs: 56px;
+    $cell-gap-xs:  6px;
+
+    &__grid {
+      grid-template-columns: repeat(4, $cell-size-xs);
+      grid-template-rows:    repeat(4, $cell-size-xs);
+      gap: $cell-gap-xs;
+    }
+    &__cell {
+      width: $cell-size-xs;
+      height: $cell-size-xs;
+    }
   }
 }

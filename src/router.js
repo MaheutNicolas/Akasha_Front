@@ -7,9 +7,11 @@ import Game from './page/Game.vue';
 import Email from './page/Email.vue';
 import Explore from './page/Explore.vue';
 import Parametre from './page/Parametre.vue';
+import Landing from './page/Landing.vue';
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Landing },
+  { path: '/home', component: Home },
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/rune', component: Rune },

@@ -18,10 +18,10 @@ const { isLoggedIn } = useAuth()
 const hiddenRoutesHeader  = ['/login', '/register'];
 const hiddenRoutesFooter  = ['/login', '/register', '/game'];
 const publicRoutes  = ['/login', '/register'];
-const hiddenBackRoutes = [ '/' ];
+const hiddenBackRoutes = [ '/home' ];
 
 const showHeader = computed(() =>
-  !hiddenRoutesHeader.some(r => route.path.startsWith(r))
+  !hiddenRoutesHeader.some(r => route.path.startsWith(r)) && route.path != '/'
 )
 
 const showFooter = computed(() =>
