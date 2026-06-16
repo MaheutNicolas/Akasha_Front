@@ -33,6 +33,14 @@ const activeRune = ref(null);
 const direction  = ref({ up: false, down: false, left: false, right: false });
 const keybinds   = ref({});
 
+const mapData    = ref({
+  nodes: [],
+  player: {},
+  enemies: []
+});
+const mapX = ref(0);
+const mapY = ref(0);
+
 const sortedRunes = computed(() =>
   [...runes.value].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 )
@@ -62,13 +70,6 @@ function onKeyDown(e) {
     }
   }
 }
-const mapData    = ref({
-  nodes: [],
-  player: {},
-  enemies: []
-});
-const mapX = ref(0);
-const mapY = ref(0);
 
 function addMessages(messages) {
   const list = Array.isArray(messages) ? messages : [messages];

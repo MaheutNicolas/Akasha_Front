@@ -1,7 +1,7 @@
 <template>
   <Header v-if="showHeader" :hasBackButton="showBack" />
   <RouterView />
-  <Footer v-if="showHeader" />
+  <Footer v-if="showFooter" />
 </template>
 
 <script setup>
@@ -15,12 +15,17 @@ const route  = useRoute()
 const router = useRouter()
 const { isLoggedIn } = useAuth()
 
-const hiddenRoutes  = ['/login', '/register'];
+const hiddenRoutesHeader  = ['/login', '/register'];
+const hiddenRoutesFooter  = ['/login', '/register', '/game'];
 const publicRoutes  = ['/login', '/register'];
 const hiddenBackRoutes = [ '/' ];
 
 const showHeader = computed(() =>
-  !hiddenRoutes.some(r => route.path.startsWith(r))
+  !hiddenRoutesHeader.some(r => route.path.startsWith(r))
+)
+
+const showFooter = computed(() =>
+  !hiddenRoutesFooter.some(r => route.path.startsWith(r))
 )
 
 const showBack = computed(() =>

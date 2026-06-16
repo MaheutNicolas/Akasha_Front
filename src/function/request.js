@@ -5,7 +5,7 @@ const TOKEN_KEY = 'akasha_token';
 
 async function request(method = "GET", url = "/api", body = null) {
   const token = localStorage.getItem(TOKEN_KEY);
-
+  
   const res = await fetch(defaultUri + url, {
     method,
     headers: { 

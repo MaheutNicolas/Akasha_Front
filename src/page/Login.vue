@@ -62,9 +62,10 @@
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import useAuth from '@/function/useAuth.js';
+import request from '@/function/request';
 
 const router  = useRouter();
-const { login } = useAuth();
+const { login, token } = useAuth();
 const loading = ref(false);
 
 const form   = reactive({ email: '', password: '' });
@@ -95,4 +96,13 @@ async function handleSubmit() {
     loading.value = false
   }
 }
+
+async function test() {
+  let response = await request('GET', '/api/auth/check');
+  if ( response.success ) {
+    router.push('/');
+  }
+}
+
+test();
 </script>
