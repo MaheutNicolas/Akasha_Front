@@ -40,7 +40,8 @@
   <RuneOrderModal 
     :modelValue="showModal" 
     :runes="runes" 
-    @update:modelValue="$event => (showModal = $event)" />
+    @update:modelValue="$event => (showModal = $event)"
+    @saved="updateRune" />
 </template>
 
 <script setup>
@@ -94,5 +95,10 @@ async function invoke() {
   } finally {
     loading.value = false
   }
+}
+
+function updateRune(data) {
+  runes.value = data;
+  console.log(runes.value);
 }
 </script>

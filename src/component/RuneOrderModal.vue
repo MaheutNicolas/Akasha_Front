@@ -68,11 +68,12 @@ function onDrop(targetIdx) {
 }
 
 async function submit() {
-  const payload = localOrder.value.map((r, i) => ({ id: r.linkId, order: i }))
+  const data = localOrder.value.map((r, i) => ({ id: r.linkId, order: i }))
+  const updated = localOrder.value.map((r, i) => ({ ...r, order: i + 1 }))
   
-  await request('POST', '/api/runes/order', payload);
+  await request('POST', '/api/runes/order', data);
 
-  emit('saved', payload)
+  emit('saved', updated)
   emit('update:modelValue', false)
 }
 </script>
