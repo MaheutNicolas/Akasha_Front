@@ -53,6 +53,10 @@
         <RouterLink to="/register">Créer un accès</RouterLink>
       </p>
 
+      <p class="login-register__message">
+        <RouterLink to="/">Acceuil</RouterLink>
+      </p>
+      
     </div>
 
   </div>

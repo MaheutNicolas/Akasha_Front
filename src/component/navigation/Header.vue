@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="header__nav">
-      <RouterLink to="/" class="header__logo">AKASHA</RouterLink>
+      <RouterLink to="/home" class="header__logo">AKASHA</RouterLink>
 
       <button
         class="header__burger"
@@ -13,17 +13,17 @@
         <span></span><span></span><span></span>
       </button>
 
-      <div class="header__collapse" :class="{ 'is-open': isMenuOpen }">
-        <div class="header__main">
-          <button class="back-btn" @click="back" v-if="hasBackButton">Retour</button>
-          <span v-else class="desktop"></span>
-          <span class="header__player" v-if="user">{{ user.replace(/"/g, '') }}</span>
-        </div>
-        <div class="header__right">
-          <button @click="logout">Déconnexion</button>
-        </div>
-      </div>
     </nav>
+    <div class="header__collapse" :class="{ 'is-open': isMenuOpen }">
+      <div class="header__main">
+        <button class="back-btn" @click="back" v-if="hasBackButton">Retour</button>
+        <span v-else class="desktop"></span>
+        <span class="header__player" v-if="user">{{ user.replace(/"/g, '') }}</span>
+      </div>
+      <div class="header__right">
+        <button @click="logout">Déconnexion</button>
+      </div>
+    </div>
   </header>
 </template>
 

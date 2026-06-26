@@ -267,4 +267,101 @@ $list-width: 280px;
     font-size: 1.5rem;
     color: $text-dim;
   }
+
+  &__topbar { display: none; }
+  &__overlay { display: none; }
+  &__list-close { display: none; }
+
+  // ── Mobile ─────────────────────────────────────
+  @include md {
+    display: block;
+    position: relative;
+
+    &__topbar {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm $spacing-md;
+      border-bottom: 1px solid $border;
+      background: $surface;
+      width: min-content;
+      height: min-content;
+      cursor: pointer;
+
+      &-title {
+        font-family: $font-mono;
+        font-size: $font-small;
+        text-transform: uppercase;
+        color: $text-muted;
+        flex: 1;
+      }
+    }
+
+    &__burger {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px;
+      background: transparent;
+      border: 1px solid $border;
+      border-radius: $radius-xs;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 16px;
+        height: 1.5px;
+        background: $blue;
+      }
+    }
+
+    &__list-close {
+      display: block;
+      margin-left: auto;
+      background: transparent;
+      border: 1px solid $border;
+      border-radius: $radius-xs;
+      color: $text-muted;
+      padding: 2px 8px;
+      font-size: $font-small;
+      cursor: pointer;
+    }
+
+    &__overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba($bg, 0.65);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+
+      &.is-open {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    &__list {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      max-width: 85vw;
+      z-index: 110;
+      transform: translateX(-100%);
+      transition: transform 0.27s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-right: 1px solid $border2;
+
+      &.is-open {
+        transform: translateX(0);
+      }
+    }
+
+    &__detail-placeholder {
+      height: 30px;
+    }
+  }
 }

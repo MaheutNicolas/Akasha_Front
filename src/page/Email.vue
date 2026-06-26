@@ -1,11 +1,25 @@
 <template>
     <div class="mail">
 
-        <!-- Liste -->
-        <aside class="mail__list">
+        <!-- Topbar mobile -->
+        <div class="mail__topbar" @click="panelOpen = true">
+            <span class="mail__topbar-title">Messages</span>
+            <span class="mail__list-count" v-if="unread > 0">{{ unread }}</span>
+        </div>
+
+        <!-- Overlay -->
+        <div
+        class="mail__overlay"
+        :class="{ 'is-open': panelOpen }"
+        @click="panelOpen = false"
+        ></div>
+
+       <!-- Liste -->
+        <aside class="mail__list" :class="{ 'is-open': panelOpen }">
             <div class="mail__list-head">
                 <span class="mail__list-title">Messages</span>
                 <span class="mail__list-count" v-if="unread > 0">{{ unread }}</span>
+                <button class="mail__list-close" @click="panelOpen = false">✕</button>
             </div>
 
             <div class="mail__list-body">
@@ -50,6 +64,8 @@
             </div>
 
             <template v-else>
+                <div class="mail__detail-placeholder"></div>
+
                 <div class="mail__detail-head">
                     <div class="mail__detail-meta">
                         <h2 class="mail__detail-subject">{{ selected.subject }}</h2>
@@ -91,6 +107,7 @@
 import { ref, computed, onMounted } from 'vue';
 import request from '@/function/request';
 
+const panelOpen = ref(false);
 const emails = ref([]);
 const selected = ref(null)
 const loading  = ref(true)
@@ -114,6 +131,7 @@ onMounted(async () => {
 
 async function open(mail) {
   selected.value = mail
+  panelOpen.value = false
 
   if (!mail.isRead) {
     mail.isRead = true

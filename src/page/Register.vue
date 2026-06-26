@@ -67,6 +67,10 @@
         Déjà un accès ? <br>
         <RouterLink to="/login">Se connecter</RouterLink>
       </p>
+
+       <p class="login-register__message">
+        <RouterLink to="/">Acceuil</RouterLink>
+      </p>
     </div>
   </div>
 </template>
